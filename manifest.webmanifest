@@ -1,7 +1,7 @@
 {
   "name": "Peregrinación a Luján 2026",
   "short_name": "Luján 2026",
-  "start_url": "./?native=1",
+  "start_url": "./?v=24compact",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",

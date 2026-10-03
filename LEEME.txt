@@ -1,5 +1,1 @@
-VERSIÓN NATIVA PARA GITHUB
-No tocar Apps Script.
-Es el Index V23 original, sin iframe y sin cambios de escala.
-Se agregó únicamente el puente de llamadas al backend y soporte instalable.
-Esta entrega prioriza recuperar YA el tamaño/interfaz correcta online.
+V24 COMPACTA: V23 nativa + corrección móvil + indicador ONLINE/OFFLINE + cola offline. No tocar Apps Script.

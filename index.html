@@ -2924,9 +2924,25 @@
 
 
 
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="theme-color" content="#ffffff">
+<style id="github-mobile-fix">
+@media (max-width: 600px) {
+  html { overflow-x:hidden; }
+  body {
+    zoom: .72;
+    width: 138.8889%;
+    max-width: 138.8889%;
+    overflow-x:hidden;
+  }
+}
+#netStatus{
+  position:fixed;right:8px;bottom:8px;z-index:99999;
+  padding:5px 9px;border-radius:999px;
+  font:700 12px Arial,sans-serif;
+  box-shadow:0 1px 5px #0003;
+}
+#netStatus.on{background:#dff5e7;color:#176b35}
+#netStatus.off{background:#fff0d6;color:#8a4a00}
+</style>
 
 </head>
 
@@ -2941,6 +2957,25 @@
 
 
 <body>
+<div id="netStatus" class="on">ONLINE</div>
+<div id="offlinePanel" style="display:none;position:fixed;inset:0;z-index:99990;background:#f3f5f7;padding:16px;overflow:auto;font-family:Arial,sans-serif">
+ <div style="max-width:520px;margin:auto;background:white;border-radius:16px;padding:16px">
+  <div style="text-align:center;font-size:24px;font-weight:900">Peregrinación a Luján 2026</div>
+  <div style="text-align:center;margin:6px 0 14px;font-weight:800;color:#8a4a00">MODO OFFLINE</div>
+  <label style="font-weight:800">Punto de control</label>
+  <select id="offPoint" style="width:100%;padding:10px;font-size:17px;margin:5px 0 10px"><option>Parroquia</option><option>Morón</option><option>Merlo</option><option>La Reja</option><option>Rodríguez</option><option>Luján</option></select>
+  <input id="offQ" placeholder="Nº / DNI / nombre" style="width:100%;padding:11px;font-size:18px">
+  <button onclick="offSearch()" style="width:100%;padding:12px;margin-top:8px;background:#303030;color:white;border:0;border-radius:9px;font-weight:800">BUSCAR PEREGRINO</button>
+  <div id="offResult" style="margin-top:10px"></div>
+  <div id="offActions" style="display:none">
+   <button onclick="offSave('PRESENTE')" style="width:100%;padding:12px;margin-top:8px;background:#198754;color:white;border:0;border-radius:9px;font-weight:800">PRESENTE</button>
+   <button onclick="offSave('SE QUEDA')" style="width:100%;padding:12px;margin-top:8px;background:#8a5a00;color:white;border:0;border-radius:9px;font-weight:800">SE QUEDA</button>
+   <button onclick="offSave('CONTINUA')" style="width:100%;padding:12px;margin-top:8px;background:#2864b7;color:white;border:0;border-radius:9px;font-weight:800">CONTINÚA</button>
+  </div>
+  <div id="offCount" style="margin-top:12px;font-weight:800"></div>
+ </div>
+</div>
+
 
   <div id="modalConfirmacion" class="modalConfirmacionFondo" role="dialog" aria-modal="true" aria-labelledby="modalConfirmacionTexto">
     <div class="modalConfirmacionCaja">
@@ -4699,34 +4734,25 @@
 
 <script>
 (function(){
-  const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec";
-  function jsonp(params){
-    return new Promise((resolve,reject)=>{
-      const cb='l24_'+Date.now()+'_'+Math.random().toString(36).slice(2);
-      const sc=document.createElement('script');
-      let timer;
-      const clean=()=>{clearTimeout(timer);delete window[cb];sc.remove();};
-      window[cb]=(data)=>{clean();resolve(data);};
-      sc.onerror=()=>{clean();reject(new Error('Sin conexión con el servidor'));};
-      sc.src=API+'?'+new URLSearchParams({...params,callback:cb}).toString();
-      document.head.appendChild(sc);
-      timer=setTimeout(()=>{clean();reject(new Error('Tiempo de espera agotado'));},30000);
-    });
-  }
-  function runner(ok,fail){
-    return new Proxy({},{
-      get(_t,p){
-        if(p==='withSuccessHandler') return fn=>runner(fn,fail);
-        if(p==='withFailureHandler') return fn=>runner(ok,fn);
-        return (...args)=>jsonp({api:'rpc',fn:String(p),args:JSON.stringify(args)})
-          .then(r=>{if(ok)ok(r)})
-          .catch(e=>{if(fail)fail(e);else console.error(e)});
-      }
-    });
-  }
-  window.google=window.google||{};
-  google.script=google.script||{};
-  google.script.run=runner(null,null);
+ const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec";
+ function jsonp(params){
+  return new Promise((resolve,reject)=>{
+   const cb='l24_'+Date.now()+'_'+Math.random().toString(36).slice(2),s=document.createElement('script');
+   let t; const clean=()=>{clearTimeout(t);delete window[cb];s.remove()};
+   window[cb]=r=>{clean();resolve(r)}; s.onerror=()=>{clean();reject(new Error('Sin conexión'))};
+   s.src=API+'?'+new URLSearchParams({...params,callback:cb});document.head.appendChild(s);
+   t=setTimeout(()=>{clean();reject(new Error('Sin respuesta'))},30000);
+  });
+ }
+ window.v24Jsonp=jsonp;
+ function runner(ok,fail){
+  return new Proxy({},{get(_t,p){
+   if(p==='withSuccessHandler')return fn=>runner(fn,fail);
+   if(p==='withFailureHandler')return fn=>runner(ok,fn);
+   return(...args)=>jsonp({api:'rpc',fn:String(p),args:JSON.stringify(args)}).then(r=>ok&&ok(r)).catch(e=>fail?fail(e):console.error(e));
+  }});
+ }
+ window.google=window.google||{};google.script=google.script||{};google.script.run=runner(null,null);
 })();
 </script>
 
@@ -11149,9 +11175,24 @@ setInterval(
 
 
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function(){ navigator.serviceWorker.register('./sw.js'); });
-}
+(function(){
+ const R='lujan24_roster',Q='lujan24_queue'; let sel=null;
+ const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+ const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+ function paint(){
+  const on=navigator.onLine,b=document.getElementById('netStatus'),p=document.getElementById('offlinePanel'),a=read(Q,[]);
+  b.textContent=on?'ONLINE':('OFFLINE · '+a.length+' pendiente'+(a.length===1?'':'s'));b.className=on?'on':'off';
+  p.style.display=on?'none':'block'; const c=document.getElementById('offCount');if(c)c.textContent='Pendientes de sincronizar: '+a.length;
+ }
+ async function roster(){try{const r=await v24Jsonp({api:'roster'});if(r&&r.ok&&r.peregrinos)localStorage.setItem(R,JSON.stringify(r.peregrinos))}catch(e){}}
+ async function sync(){if(!navigator.onLine)return;let a=read(Q,[]);for(const x of [...a]){try{const r=await v24Jsonp({api:'sync',payload:JSON.stringify(x)});if(r&&r.ok){a=a.filter(y=>y.id!==x.id);write(Q,a)}else break}catch(e){break}}paint()}
+ window.offSearch=function(){const q=norm(document.getElementById('offQ').value),r=read(R,[]);sel=r.find(x=>norm(x.numero)===q||norm(x.dni)===q)||r.find(x=>norm(x.nombre).includes(q));const o=document.getElementById('offResult'),a=document.getElementById('offActions');if(!sel){o.innerHTML='<div style="padding:10px;background:#fff0d6;border-radius:8px">No encontrado en la última nómina sincronizada.</div>';a.style.display='none';return}o.innerHTML=`<div style="padding:10px;background:#f4f8fb;border-radius:8px"><b>${sel.nombre}</b><br>Nº ${sel.numero} · DNI ${sel.dni||'—'}<br>Salida: ${sel.salida||'—'}</div>`;a.style.display='block'};
+ window.offSave=function(accion){if(!sel)return;const a=read(Q,[]);a.push({id:(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random()),numero:sel.numero,punto:document.getElementById('offPoint').value,accion,fechaCliente:new Date().toISOString()});write(Q,a);paint();document.getElementById('offResult').insertAdjacentHTML('beforeend','<div style="padding:9px;background:#e4f5e9;border-radius:8px;margin-top:8px"><b>'+accion+'</b> guardado OFFLINE.</div>')};
+ addEventListener('offline',paint);addEventListener('online',()=>{paint();sync();roster()});
+ document.addEventListener('DOMContentLoaded',()=>{paint();if(navigator.onLine){sync();roster()}});
+ if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
+})();
 </script>
 
 </body>
