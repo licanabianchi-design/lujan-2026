@@ -1,5 +1,1 @@
-V24 FINAL
-- Interfaz completa V23 cuando hay Internet: ficha, salud, pendientes, cancelar presente, micros de ida con PIN, micros de regreso y horarios.
-- Offline: nómina, búsqueda, PRESENTE, SE QUEDA, CONTINÚA y último estado sincronizado de pendientes.
-- Acciones masivas de micros y regreso: solo online.
-- Sincronización automática al recuperar Internet.
+V24 FINAL CORREGIDA. Reemplazar los 6 archivos del repositorio por estos. La interfaz online conserva V23 y agrega solo estado de conexión; el modo offline aparece únicamente al perder Internet.

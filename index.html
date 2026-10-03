@@ -2928,39 +2928,53 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="theme-color" content="#0b5cab">
 <script>
-/* V24 FINAL: puente GitHub Pages -> Apps Script para conservar TODA la interfaz V23 online. */
 (function(){
   const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec";
   function jsonp(params){
     return new Promise((resolve,reject)=>{
-      const cb='v24cb_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+      const cb='v24_'+Date.now()+'_'+Math.random().toString(36).slice(2);
       const s=document.createElement('script');
-      const t=setTimeout(()=>{clean();reject(new Error('Sin respuesta del servidor'))},30000);
-      function clean(){clearTimeout(t);delete window[cb];s.remove()}
-      window[cb]=d=>{clean();resolve(d)};
-      s.onerror=()=>{clean();reject(new Error('Error de conexión'))};
+      const timer=setTimeout(()=>{cleanup();reject(new Error('Sin respuesta del servidor'))},30000);
+      function cleanup(){clearTimeout(timer);delete window[cb];s.remove()}
+      window[cb]=r=>{cleanup();resolve(r)};
+      s.onerror=()=>{cleanup();reject(new Error('Error de conexión'))};
       s.src=API+'?'+new URLSearchParams({...params,callback:cb});
       document.head.appendChild(s);
     });
   }
   window.v24Jsonp=jsonp;
-  const state={success:null,failure:null};
-  function runner(){
+  function chain(success,failure){
     return new Proxy({},{
-      get(_t,prop){
-        if(prop==='withSuccessHandler') return fn=>{state.success=fn;return runner()};
-        if(prop==='withFailureHandler') return fn=>{state.failure=fn;return runner()};
-        return (...args)=>{
-          const ok=state.success, fail=state.failure; state.success=null; state.failure=null;
-          jsonp({api:'rpc',fn:String(prop),args:JSON.stringify(args)})
-            .then(r=>{if(ok)ok(r)}).catch(e=>{if(fail)fail(e);else console.error(e)});
-        };
+      get(_t,p){
+        if(p==='withSuccessHandler') return fn=>chain(fn,failure);
+        if(p==='withFailureHandler') return fn=>chain(success,fn);
+        return (...args)=>jsonp({api:'rpc',fn:String(p),args:JSON.stringify(args)})
+          .then(r=>{if(success)success(r)}).catch(e=>{if(failure)failure(e);else console.error(e)});
       }
     });
   }
-  window.google=window.google||{}; google.script=google.script||{}; google.script.run=runner();
+  window.google=window.google||{};
+  google.script=google.script||{};
+  google.script.run=chain(null,null);
 })();
 </script>
+
+
+<style>
+#v24EstadoRed{
+  position:sticky;top:0;z-index:9000;margin:0 auto 8px;max-width:760px;
+  padding:7px 12px;text-align:center;font:700 14px Arial,sans-serif;
+  background:#eaf8ef;color:#176b35;border-radius:0 0 12px 12px;
+}
+#v24EstadoRed.offline{background:#fff1d6;color:#9a4b00}
+@media(max-width:600px){
+  .horariosMicros{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+  .horarioMicro{padding:9px 3px!important;overflow:hidden}
+  .horarioMicro label{font-size:17px!important}
+  .horarioMicro input[type=time]{font-size:16px!important;padding:3px 1px!important;min-width:0!important;width:100%!important}
+  .microCancelar{font-size:18px!important;min-height:52px!important}
+}
+</style>
 
 </head>
 
@@ -2974,7 +2988,7 @@
 
 
 
-<body>
+<body><div id="v24EstadoRed">ONLINE · sincronizando datos</div>
 
   <div id="modalConfirmacion" class="modalConfirmacionFondo" role="dialog" aria-modal="true" aria-labelledby="modalConfirmacionTexto">
     <div class="modalConfirmacionCaja">
@@ -3057,7 +3071,7 @@
 
 
 
-      VERSIÓN 23 — 01/10 · HOJA 9 DIRECTA
+      VERSIÓN 24 FINAL · ONLINE + OFFLINE
 
 
 
@@ -11148,93 +11162,81 @@ setInterval(
 
 
 
-<div id="v24Offline" style="display:none;position:fixed;inset:0;z-index:999999;background:#eef6ff;overflow:auto;font-family:Arial,sans-serif;color:#17324d">
-  <div style="max-width:680px;margin:auto;padding:14px">
-    <div style="background:white;border-radius:18px;padding:14px;text-align:center;margin-bottom:10px">
-      <img src="icon-192.png" style="width:82px;height:82px;border-radius:20px;object-fit:cover">
-      <div style="font-size:22px;font-weight:800;margin-top:6px">Luján 2026 · MODO OFFLINE</div>
-      <div id="v24OfflineCount" style="margin-top:6px;font-weight:700"></div>
-    </div>
-    <div style="background:white;border-radius:18px;padding:14px;margin-bottom:10px">
-      <select id="v24Point" style="width:100%;padding:12px;font-size:17px;border-radius:10px;margin-bottom:8px">
-        <option>Parroquia</option><option>Morón</option><option>Merlo</option><option>La Reja</option><option>Rodríguez</option><option>Luján</option>
-      </select>
-      <button onclick="v24MostrarPendientesOffline()" style="width:100%;padding:12px;border-radius:10px;border:2px solid #0b5cab;background:white;color:#0b5cab;font-weight:800">VER PEREGRINOS PENDIENTES</button>
-      <input id="v24Q" placeholder="Nº / DNI / nombre" style="width:100%;padding:12px;font-size:17px;border-radius:10px;border:1px solid #aaa;margin-top:10px">
-      <button onclick="v24BuscarOffline()" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">BUSCAR</button>
-      <div id="v24Result" style="margin-top:10px"></div>
-      <div id="v24Actions" style="display:none">
-        <button onclick="v24GuardarOffline('PRESENTE')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">PRESENTE</button>
-        <button onclick="v24GuardarOffline('SE QUEDA')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#7a4d00;color:white;font-weight:800;margin-top:7px">SE QUEDA</button>
-        <button onclick="v24GuardarOffline('CONTINUA')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">CONTINÚA</button>
-      </div>
-    </div>
-    <div id="v24PendingBox" style="display:none;background:white;border-radius:18px;padding:14px"></div>
-    <div style="font-size:12px;padding:8px">Los movimientos quedan guardados con la hora real y se sincronizan al recuperar señal. Las llegadas/cancelaciones masivas de micros y la gestión de regreso son solo ONLINE.</div>
+<div id="v24OfflinePanel" style="display:none;position:fixed;inset:0;z-index:9500;background:#eef6ff;overflow:auto;font-family:Arial,sans-serif;color:#17324d">
+<div style="max-width:680px;margin:auto;padding:14px">
+  <div style="background:#fff;border-radius:18px;padding:14px;text-align:center;margin-bottom:10px">
+    <img src="icon-192.png" style="width:78px;height:78px;border-radius:18px;object-fit:cover">
+    <div style="font-size:22px;font-weight:800;margin-top:6px">52º Peregrinación a Luján 2026</div>
+    <div style="font-size:14px">MODO OFFLINE</div>
+    <div id="v24QueueCount" style="margin-top:7px;font-weight:700"></div>
   </div>
-</div>
+  <div style="background:#fff;border-radius:18px;padding:14px;margin-bottom:10px">
+    <label><b>Punto de control</b></label>
+    <select id="v24Point" style="width:100%;padding:12px;font-size:17px;border-radius:10px;margin:6px 0">
+      <option>Parroquia</option><option>Morón</option><option>Merlo</option><option>La Reja</option><option>Rodríguez</option><option>Luján</option>
+    </select>
+    <button onclick="v24PendientesOffline()" style="width:100%;padding:12px;border:2px solid #687985;border-radius:10px;background:#fff;color:#3f515e;font-weight:800">VER PEREGRINOS PENDIENTES</button>
+    <input id="v24Q" placeholder="Nº / DNI / nombre" style="width:100%;padding:13px;font-size:18px;border-radius:10px;border:1px solid #aaa;margin-top:10px">
+    <button onclick="v24BuscarOffline()" style="width:100%;padding:13px;border:0;border-radius:10px;background:#303030;color:#fff;font-weight:800;margin-top:7px">BUSCAR PEREGRINO</button>
+    <div id="v24Result" style="margin-top:10px"></div>
+    <div id="v24Actions" style="display:none">
+      <button onclick="v24GuardarOffline('PRESENTE')" style="width:100%;padding:13px;border:0;border-radius:10px;background:#198754;color:#fff;font-weight:800;margin-top:8px">PRESENTE</button>
+      <button onclick="v24GuardarOffline('SE QUEDA')" style="width:100%;padding:13px;border:0;border-radius:10px;background:#8a5a00;color:#fff;font-weight:800;margin-top:8px">SE QUEDA</button>
+      <button onclick="v24GuardarOffline('CONTINUA')" style="width:100%;padding:13px;border:0;border-radius:10px;background:#2864b7;color:#fff;font-weight:800;margin-top:8px">CONTINÚA</button>
+    </div>
+  </div>
+  <div id="v24PendingBox" style="display:none;background:#fff;border-radius:18px;padding:14px;margin-bottom:10px"></div>
+  <div style="font-size:12px;padding:5px 8px 18px">
+    Sin señal se guardan PRESENTE, SE QUEDA y CONTINÚA con la hora real. Llegadas/cancelaciones masivas de micros, salud y regreso requieren Internet.
+  </div>
+</div></div>
 
 
 <script>
 (function(){
-const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec", KR='lujan24_roster', KQ='lujan24_queue', KU='lujan24_updated';
-let sel=null;
+const KR='lujan24_roster',KQ='lujan24_queue',KU='lujan24_updated';let sel=null;
 const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
-function queue(){return load(KQ,[])}
-function paintOffline(){
- const off=document.getElementById('v24Offline'); if(!off)return;
- off.style.display=navigator.onLine?'none':'block';
- document.getElementById('v24OfflineCount').textContent='Registros pendientes de sincronizar: '+queue().length;
-}
-async function roster(){
- if(!navigator.onLine)return;
- try{const d=await window.v24Jsonp({api:'roster'});if(d.ok){save(KR,d.peregrinos);localStorage.setItem(KU,new Date().toLocaleString('es-AR'));}}catch(e){}
-}
-async function cachePendientes(){
- if(!navigator.onLine)return;
- for(const p of ['Parroquia','Morón','Merlo','La Reja','Rodríguez','Luján']){
-   try{const d=await window.v24Jsonp({api:'pending',punto:p});if(d&&d.ok)save('lujan24_pending_'+norm(p),d)}catch(e){}
- }
- for(const s of ['Liniers','Rodríguez']){
-   try{const d=await window.v24Jsonp({api:'pending',punto:'Parroquia',salida:s});if(d&&d.ok)save('lujan24_pending_'+norm('Parroquia '+s),d)}catch(e){}
- }
+const q=()=>load(KQ,[]);
+function paint(){
+ const on=navigator.onLine,bar=document.getElementById('v24EstadoRed'),panel=document.getElementById('v24OfflinePanel');
+ if(bar){bar.textContent=on?'ONLINE · datos sincronizados':'OFFLINE · '+q().length+' registro(s) pendiente(s)';bar.className=on?'':'offline'}
+ if(panel)panel.style.display=on?'none':'block';
+ const c=document.getElementById('v24QueueCount');if(c)c.textContent='Registros pendientes de sincronizar: '+q().length;
 }
 async function sync(){
- if(!navigator.onLine)return; let a=queue();
- for(const item of [...a]){
-   try{const d=await window.v24Jsonp({api:'sync',payload:JSON.stringify(item)});if(d&&d.ok){a=a.filter(x=>x.id!==item.id);save(KQ,a)}else break}catch(e){break}
- }
- paintOffline();
+ if(!navigator.onLine)return;let a=q();
+ for(const item of [...a]){try{const r=await v24Jsonp({api:'sync',payload:JSON.stringify(item)});if(r&&r.ok){a=a.filter(x=>x.id!==item.id);save(KQ,a)}else break}catch(e){break}}
+ paint();
+}
+async function refresh(){
+ if(!navigator.onLine)return;
+ try{const r=await v24Jsonp({api:'roster'});if(r&&r.ok){save(KR,r.peregrinos);localStorage.setItem(KU,new Date().toISOString())}}catch(e){}
+ const puntos=['Parroquia','Morón','Merlo','La Reja','Rodríguez','Luján'];
+ for(const p of puntos){try{const d=await v24Jsonp({api:'pending',punto:p});if(d&&d.ok)save('lujan24_pending_'+norm(p),d)}catch(e){}}
 }
 window.v24BuscarOffline=function(){
- const q=norm(document.getElementById('v24Q').value),r=load(KR,[]);
- sel=r.find(p=>norm(p.numero)===q||norm(p.dni)===q)||r.find(p=>norm(p.nombre).includes(q));
- const el=document.getElementById('v24Result'),ac=document.getElementById('v24Actions');
- if(!sel){el.innerHTML='<div style="padding:10px;background:#fff4d8;border-radius:10px">No encontrado en la última nómina sincronizada.</div>';ac.style.display='none';return}
- el.innerHTML=`<div style="padding:10px;background:#f5f9fd;border-radius:10px"><b style="font-size:20px">${sel.nombre}</b><br>Nº ${sel.numero} · DNI ${sel.dni||'—'} · Edad ${sel.edad||'—'}<br>Tel: ${sel.telefono||'—'} · Salida: ${sel.salida||'—'}<br>Alimentación: ${sel.alimentacion||'—'}<br>Cobertura: ${sel.cobertura||'—'}<br>Grupo sanguíneo: ${sel.grupo||'—'}<br>Acompañante: ${sel.acompanante||'—'}</div>`;
+ const n=norm(document.getElementById('v24Q').value),r=load(KR,[]);
+ sel=r.find(x=>norm(x.numero)===n||norm(x.dni)===n)||r.find(x=>norm(x.nombre).includes(n));
+ const out=document.getElementById('v24Result'),ac=document.getElementById('v24Actions');
+ if(!sel){out.innerHTML='<div style="padding:10px;background:#fff1d6;border-radius:10px">No encontrado en la última nómina sincronizada.</div>';ac.style.display='none';return}
+ out.innerHTML=`<div style="padding:11px;background:#f5f9fd;border-radius:10px;line-height:1.5"><b style="font-size:20px">${sel.nombre}</b><br>Nº ${sel.numero} · DNI ${sel.dni||'—'} · Edad ${sel.edad||'—'}<br>Teléfono: ${sel.telefono||'—'}<br>Cobertura: ${sel.cobertura||'—'} · Alimentación: ${sel.alimentacion||'—'}<br>Grupo sanguíneo: ${sel.grupo||'—'}<br>Salida: ${sel.salida||'—'} · Acompañante: ${sel.acompanante||'—'}</div>`;
  ac.style.display='block';
 };
 window.v24GuardarOffline=function(accion){
- if(!sel)return; const a=queue();
- a.push({id:crypto.randomUUID(),numero:sel.numero,punto:document.getElementById('v24Point').value,accion,fechaCliente:new Date().toISOString()});
- save(KQ,a); paintOffline();
+ if(!sel)return;const a=q();a.push({id:crypto.randomUUID(),numero:sel.numero,punto:document.getElementById('v24Point').value,accion,fechaCliente:new Date().toISOString()});save(KQ,a);paint();
  document.getElementById('v24Result').insertAdjacentHTML('beforeend',`<div style="margin-top:8px;padding:10px;background:#eaf8ef;border-radius:10px"><b>${accion}</b> guardado OFFLINE.</div>`);
 };
-window.v24MostrarPendientesOffline=function(){
- const p=document.getElementById('v24Point').value,d=load('lujan24_pending_'+norm(p),null),box=document.getElementById('v24PendingBox');
- box.style.display='block';
- if(!d){box.innerHTML='<b>PENDIENTES — '+p.toUpperCase()+'</b><p>No hay una lista sincronizada para esta parada. Abrí la app con Internet antes de salir.</p>';return}
- let h='<b>PENDIENTES — '+p.toUpperCase()+'</b><p style="font-size:12px">Último estado sincronizado. Puede haber movimientos de otros teléfonos todavía sin sincronizar.</p>';
+window.v24PendientesOffline=function(){
+ const p=document.getElementById('v24Point').value,d=load('lujan24_pending_'+norm(p),null),box=document.getElementById('v24PendingBox');box.style.display='block';
+ if(!d){box.innerHTML='<b>PENDIENTES — '+p.toUpperCase()+'</b><p>No hay una lista sincronizada para esta parada.</p>';return}
+ let h='<b>PENDIENTES — '+p.toUpperCase()+'</b><p style="font-size:12px">Último estado sincronizado. Otro teléfono puede tener movimientos todavía sin enviar.</p>';
  h+=`<p><b>Esperados:</b> ${d.esperados??'—'} · <b>Presentes:</b> ${d.presentes??'—'} · <b>Pendientes:</b> ${d.pendientesCantidad??(d.pendientes||[]).length}</p>`;
- const arr=d.pendientes||[]; if(!arr.length)h+='<p>No hay peregrinos pendientes.</p>';
- arr.forEach(x=>h+=`<div style="padding:9px 0;border-top:1px solid #ddd"><b>${x.numero||''} · ${x.nombre||''}</b><br>DNI: ${x.dni||'—'} · Tel: ${x.telefono||'—'}<br>Salida: ${x.salida||'—'}</div>`);
- box.innerHTML=h;
+ const a=d.pendientes||[];if(!a.length)h+='<p>No hay peregrinos pendientes.</p>';a.forEach(x=>h+=`<div style="border-top:1px solid #ddd;padding:9px 0"><b>${x.numero||''} · ${x.nombre||''}</b><br>DNI: ${x.dni||'—'} · Tel: ${x.telefono||'—'}<br>Salida: ${x.salida||'—'}</div>`);box.innerHTML=h;
 };
-window.addEventListener('offline',paintOffline);
-window.addEventListener('online',async()=>{paintOffline();await sync();await roster();await cachePendientes()});
-document.addEventListener('DOMContentLoaded',async()=>{paintOffline();if(navigator.onLine){await sync();await roster();cachePendientes()}});
-setInterval(()=>{if(navigator.onLine){sync();roster();cachePendientes()}},120000);
+window.addEventListener('offline',paint);window.addEventListener('online',async()=>{paint();await sync();await refresh()});
+document.addEventListener('DOMContentLoaded',async()=>{paint();if(navigator.onLine){await sync();await refresh();paint()}});
+setInterval(()=>{if(navigator.onLine){sync();refresh()}},120000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
 })();
 </script>
