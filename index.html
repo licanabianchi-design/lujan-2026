@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b5cab">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Peregrinos a Luján 2026 — V24 Offline</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#eef6ff;color:#123}
+main{max-width:680px;margin:auto;padding:18px}
+header{text-align:center;background:white;border-radius:18px;padding:16px;box-shadow:0 2px 10px #0001}
+header img{width:96px;height:96px;border-radius:22px;object-fit:cover}
+h1{font-size:25px;margin:8px 0 2px}.sub{font-size:14px}
+.status{display:flex;justify-content:space-between;gap:8px;margin:14px 0}
+.pill{background:white;border-radius:14px;padding:10px 12px;flex:1;font-weight:bold}
+.online{color:#087d35}.offline{color:#b44700}
+.card{background:white;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 2px 10px #0001}
+input,select,button{box-sizing:border-box;width:100%;font-size:18px;padding:14px;border-radius:12px;border:1px solid #b9c8d8;margin:6px 0}
+button{background:#0b5cab;color:white;border:0;font-weight:bold}
+button.secondary{background:#fff;color:#0b5cab;border:2px solid #0b5cab}
+button:disabled{opacity:.45}
+.small{font-size:13px;color:#526477}
+.result{font-size:16px;line-height:1.5}
+.queue{font-weight:bold}
+</style>
+</head>
+<body><main>
+<header>
+<img src="icon-192.png" alt="">
+<h1>Peregrinos a Luján 2026</h1>
+<div class="sub">V24 OFFLINE · Parroquia Sagrada Eucaristía</div>
+</header>
+<div class="status">
+<div id="net" class="pill">Comprobando conexión…</div>
+<div class="pill">Pendientes: <span id="pending">0</span></div>
+</div>
+
+<section class="card">
+<label>Punto</label>
+<select id="point">
+<option>Parroquia</option><option>Morón</option><option>Merlo</option>
+<option>La Reja</option><option>Rodríguez</option><option>Luján</option>
+</select>
+<label>Nº / DNI / nombre</label>
+<input id="q" autocomplete="off" placeholder="Buscar peregrino">
+<button id="search">BUSCAR</button>
+<div id="result" class="result"></div>
+</section>
+
+<section id="actions" class="card" hidden>
+<button data-action="PRESENTE">PRESENTE</button>
+<button data-action="SE QUEDA">SE QUEDA</button>
+<button data-action="CONTINUA">CONTINÚA</button>
+<p class="small">Sin Internet, el movimiento queda guardado en este dispositivo con su fecha y hora y se sincroniza al recuperar conexión.</p>
+</section>
+
+<section class="card">
+<button id="refresh" class="secondary">ACTUALIZAR NÓMINA</button>
+<div class="small">Última nómina descargada: <span id="updated">—</span></div>
+</section>
+</main>
+<script>
+const API_URL='https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec';
+const K_ROSTER='lujan24_roster',K_QUEUE='lujan24_queue',K_UPDATED='lujan24_updated';
+let selected=null;
+const $=s=>document.querySelector(s);
+function load(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function queue(){return load(K_QUEUE,[])}
+function paint(){
+ const on=navigator.onLine;
+ $('#net').textContent=on?'ONLINE':'OFFLINE';
+ $('#net').className='pill '+(on?'online':'offline');
+ $('#pending').textContent=queue().length;
+ $('#updated').textContent=localStorage.getItem(K_UPDATED)||'—';
+}
+function norm(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
+function findLocal(q){
+ const n=norm(q),r=load(K_ROSTER,[]);
+ return r.find(p=>norm(p.numero)===n||norm(p.dni)===n)||r.find(p=>norm(p.nombre).includes(n));
+}
+function show(p){
+ selected=p; $('#actions').hidden=!p;
+ $('#result').innerHTML=p?`<hr><b>${p.nombre}</b><br>Nº ${p.numero} · DNI ${p.dni||'—'}<br>Edad: ${p.edad||'—'} · Tel: ${p.telefono||'—'}<br>Alimentación: ${p.alimentacion||'—'}<br>Cobertura: ${p.cobertura||'—'}<br>Grupo sanguíneo: ${p.grupo||'—'}<br>Salida: ${p.salida||'—'}<br>Acompañante: ${p.acompanante||'—'}`:'No encontrado en la nómina guardada.';
+}
+$('#search').onclick=()=>show(findLocal($('#q').value));
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{
+ if(!selected)return;
+ const item={id:crypto.randomUUID(),numero:selected.numero,punto:$('#point').value,accion:b.dataset.action,fechaCliente:new Date().toISOString()};
+ const a=queue();a.push(item);save(K_QUEUE,a);paint();
+ $('#result').insertAdjacentHTML('beforeend',`<p><b>${b.dataset.action}</b> guardado${navigator.onLine?' para sincronizar':' OFFLINE'}.</p>`);
+ if(navigator.onLine) sync();
+});
+async function jsonp(params){
+ return new Promise((resolve,reject)=>{
+  const cb='cb_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+  const s=document.createElement('script');
+  const t=setTimeout(()=>{cleanup();reject(new Error('timeout'))},15000);
+  function cleanup(){clearTimeout(t);delete window[cb];s.remove()}
+  window[cb]=d=>{cleanup();resolve(d)};
+  s.onerror=()=>{cleanup();reject(new Error('red'))};
+  s.src=API_URL+'?'+new URLSearchParams({...params,callback:cb});
+  document.head.appendChild(s);
+ });
+}
+async function refreshRoster(){
+ if(!navigator.onLine||API_URL.startsWith('PEGAR_'))return;
+ const d=await jsonp({api:'roster'});
+ if(d.ok){save(K_ROSTER,d.peregrinos);localStorage.setItem(K_UPDATED,new Date().toLocaleString('es-AR'));paint()}
+}
+async function sync(){
+ if(!navigator.onLine||API_URL.startsWith('PEGAR_'))return;
+ let a=queue(); if(!a.length)return;
+ for(const item of [...a]){
+   try{
+    const d=await jsonp({api:'sync',payload:JSON.stringify(item)});
+    if(d.ok){a=a.filter(x=>x.id!==item.id);save(K_QUEUE,a);paint()}
+   }catch(e){break}
+ }
+}
+$('#refresh').onclick=()=>refreshRoster().catch(()=>{});
+window.addEventListener('online',()=>{paint();sync();refreshRoster().catch(()=>{})});
+window.addEventListener('offline',paint);
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
+paint(); if(navigator.onLine){sync();refreshRoster().catch(()=>{})}
+</script></body></html>
