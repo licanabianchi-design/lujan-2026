@@ -1,6 +1,5 @@
-V24 PWA LIMPIA
-- NO modificar Apps Script.
-- Con Internet, el icono muestra directamente la V23 oficial dentro de la PWA: misma interfaz, mismos botones, misma lógica.
-- Sin Internet, aparece solamente el módulo offline.
-- Al volver Internet, sincroniza la cola y vuelve automáticamente a la V23 oficial.
-- Reemplazar en GitHub los 6 archivos por los de este ZIP.
+V24 PWA — CORRECCIÓN DE ESCALA MÓVIL
+No tocar Apps Script.
+Reemplazar en GitHub los 6 archivos por estos.
+Único cambio respecto de la PWA limpia: escala del iframe en celulares + nueva versión de caché.
+La V23 oficial sigue siendo la aplicación online.
