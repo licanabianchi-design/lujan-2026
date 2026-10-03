@@ -1,128 +1,11250 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+
+
+
+<html>
+
+
+
+
+
+
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b5cab">
+
+
+
+
+
+
+
+  <base target="_top">
+
+
+
+
+
+
+
+  <meta
+
+
+
+    name="viewport"
+
+
+
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+
+
+
+  >
+
+
+
+
+
+
+
+  <style>
+
+
+
+
+
+
+
+    * {
+
+
+
+      box-sizing: border-box;
+
+
+
+    }
+
+
+
+
+
+
+
+    html,
+
+
+
+    body {
+
+
+
+      width: 100%;
+
+
+
+      margin: 0;
+
+
+
+      padding: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    body {
+
+
+
+      font-family: Arial, sans-serif;
+
+
+
+      background: #f3f4f6;
+
+
+
+      color: #222;
+
+
+
+      -webkit-text-size-adjust: 100%;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       ENCABEZADO
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .encabezado {
+
+
+
+      width: 100%;
+
+
+
+      background: white;
+
+
+
+      text-align: center;
+
+
+
+      padding: 25px 10px 22px;
+
+
+
+      margin: 0 0 12px 0;
+
+
+
+      box-shadow: 0 2px 8px rgba(0,0,0,.10);
+
+
+
+    }
+
+
+
+
+
+
+
+    .parroquia,
+
+
+
+    .titulo,
+
+
+
+    .lema {
+
+
+
+      width: 100%;
+
+
+
+      margin-left: auto;
+
+
+
+      margin-right: auto;
+
+
+
+      white-space: nowrap;
+
+
+
+      line-height: 1.16;
+
+
+
+    }
+
+
+
+
+
+
+
+    .parroquia {
+
+
+
+      font-size: clamp(30px, 5.2vw, 58px);
+
+
+
+      font-weight: 900;
+
+
+
+      margin-bottom: 15px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .titulo {
+
+
+
+      font-size: clamp(30px, 5.2vw, 58px);
+
+
+
+      font-weight: 900;
+
+
+
+      margin-bottom: 15px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .lema {
+
+
+
+      font-size: clamp(24px, 4.4vw, 49px);
+
+
+
+      font-style: italic;
+
+
+
+      font-weight: 700;
+
+
+
+      color: #444;
+
+
+
+    }
+
+
+
+
+
+
+
+    .version {
+
+
+
+      margin-top: 15px;
+
+
+
+      font-size: 19px;
+
+
+
+      font-weight: bold;
+
+
+
+      color: #777;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       CONTENIDO
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .app {
+
+
+
+      width: 100%;
+
+
+
+      max-width: 1000px;
+
+
+
+      margin: 0 auto;
+
+
+
+      padding: 7px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .caja {
+
+
+
+      width: 100%;
+
+
+
+      background: white;
+
+
+
+      border-radius: 16px;
+
+
+
+      box-shadow: 0 2px 8px rgba(0,0,0,.10);
+
+
+
+      padding: 16px;
+
+
+
+      margin-bottom: 13px;
+
+
+
+    }
+
+
+
+
+
+
+
+    label {
+
+
+
+      display: block;
+
+
+
+      font-size: 36px;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 10px;
+
+
+
+    }
+
+
+
+
+
+
+
+    select,
+
+
+
+    input {
+
+
+
+      width: 100%;
+
+
+
+      min-height: 80px;
+
+
+
+      padding: 13px;
+
+
+
+      font-size: 38px;
+
+
+
+      border: 2px solid #999;
+
+
+
+      border-radius: 12px;
+
+
+
+      margin-bottom: 15px;
+
+
+
+      background: white;
+
+
+
+    }
+
+
+
+
+
+
+
+    #numero {
+
+
+
+      min-height: 92px;
+
+
+
+      font-size: 56px;
+
+
+
+      font-weight: bold;
+
+
+
+      text-align: center;
+
+
+
+    }
+
+
+
+
+
+
+
+    button {
+
+
+
+      width: 100%;
+
+
+
+      min-height: 82px;
+
+
+
+      padding: 15px 10px;
+
+
+
+      border: none;
+
+
+
+      border-radius: 13px;
+
+
+
+      margin-top: 10px;
+
+
+
+      font-size: 34px;
+
+
+
+      line-height: 1.15;
+
+
+
+      font-weight: bold;
+
+
+
+      cursor: pointer;
+
+
+
+      touch-action: manipulation;
+
+
+
+    }
+
+
+
+
+
+
+
+    button:disabled {
+
+
+
+      opacity: .65;
+
+
+
+      cursor: default;
+
+
+
+    }
+
+
+
+
+
+
+
+    .buscar {
+
+
+
+      background: #333;
+
+
+
+      color: white;
+
+
+
+    }
+
+
+
+
+
+
+
+    .pendientesBtn {
+
+
+
+      background: #6c757d;
+
+
+
+      color: white;
+
+
+
+    }
+
+
+
+
+
+
+
+    .presente {
+
+
+
+      background: #218838;
+
+
+
+      color: white;
+
+
+
+      min-height: 94px;
+
+
+
+      font-size: 41px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .queda {
+
+
+
+      background: #eda94f;
+
+
+
+      color: white;
+
+
+
+      min-height: 91px;
+
+
+
+      font-size: 40px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .continua {
+
+
+
+      background: #218838;
+
+
+
+      color: white;
+
+
+
+      min-height: 91px;
+
+
+
+      font-size: 40px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .micro {
+
+
+
+      background: #2457a7;
+
+
+
+      color: white;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       FICHA
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    #ficha {
+
+
+
+      display: none;
+
+
+
+      margin-top: 22px;
+
+
+
+      border-top: 3px solid #ddd;
+
+
+
+      padding-top: 18px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .numeroFicha {
+
+
+
+      text-align: center;
+
+
+
+      font-size: 46px;
+
+
+
+      font-weight: bold;
+
+
+
+      color: #555;
+
+
+
+    }
+
+
+
+
+
+
+
+    .nombreFicha {
+
+
+
+      text-align: center;
+
+
+
+      font-size: 58px;
+
+
+
+      line-height: 1.08;
+
+
+
+      font-weight: 900;
+
+
+
+      margin: 10px 0 22px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .filaDosColumnas {
+
+
+
+      display: grid;
+
+
+
+      grid-template-columns: 1fr 1fr;
+
+
+
+      gap: 12px;
+
+
+
+      margin-bottom: 3px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .dato {
+
+
+
+      padding: 16px 4px;
+
+
+
+      border-bottom: 1px solid #ddd;
+
+
+
+      font-size: 36px;
+
+
+
+      line-height: 1.3;
+
+
+
+    }
+
+
+
+
+
+
+
+    .dato strong {
+
+
+
+      display: block;
+
+
+
+      margin-top: 5px;
+
+
+
+      font-size: 41px;
+
+
+
+      line-height: 1.25;
+
+
+
+    }
+
+
+
+
+
+
+
+    .filaDosColumnas .dato {
+
+
+
+      min-width: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    .filaDosColumnas .dato strong {
+
+
+
+      overflow-wrap: anywhere;
+
+
+
+    }
+
+
+
+
+
+
+
+    .telefonoLink {
+
+
+
+      color: #1558a6;
+
+
+
+      text-decoration: underline;
+
+
+
+    }
+
+
+
+
+
+
+
+    .alimentacionDato strong {
+
+
+
+      color: #8a4b00;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       ESTADO
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .estado {
+
+
+
+      margin-top: 18px;
+
+
+
+      padding: 24px 14px;
+
+
+
+      border: 3px solid #d7d7d7;
+
+
+
+      border-radius: 14px;
+
+
+
+      background: white;
+
+
+
+      text-align: center;
+
+
+
+    }
+
+
+
+
+
+
+
+    .estadoTitulo {
+
+
+
+      font-size: 31px;
+
+
+
+      color: #555;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 8px;
+
+
+
+    }
+
+
+
+
+
+
+
+    #estadoFicha {
+
+
+
+      font-size: 42px;
+
+
+
+      font-weight: 900;
+
+
+
+      line-height: 1.3;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       ACCIONES
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    #accionPresente,
+
+
+
+    #accionSeQueda,
+
+
+
+    #accionCambioDecision {
+
+
+
+      display: none;
+
+
+
+      margin-top: 18px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .aclaracionContinua {
+
+
+
+      text-align: center;
+
+
+
+      font-size: 31px;
+
+
+
+      line-height: 1.4;
+
+
+
+      margin: 13px 4px;
+
+
+
+      color: #555;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       ABRAZO
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .abrazo {
+
+
+
+      display: none;
+
+
+
+      margin-top: 18px;
+
+
+
+      padding: 23px 14px;
+
+
+
+      text-align: center;
+
+
+
+      font-size: 41px;
+
+
+
+      line-height: 1.25;
+
+
+
+      font-weight: bold;
+
+
+
+      font-style: italic;
+
+
+
+      border-radius: 14px;
+
+
+
+      background: #f6eef8;
+
+
+
+      color: #63326d;
+
+
+
+      border: 2px solid #b98bc4;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       AVISOS
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    #aviso {
+
+
+
+      display: none;
+
+
+
+      margin-top: 18px;
+
+
+
+      padding: 19px;
+
+
+
+      border-radius: 13px;
+
+
+
+      text-align: center;
+
+
+
+    }
+
+
+
+
+
+
+
+    #tituloAviso {
+
+
+
+      font-size: 40px;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 9px;
+
+
+
+    }
+
+
+
+
+
+
+
+    #textoAviso {
+
+
+
+      font-size: 34px;
+
+
+
+      line-height: 1.4;
+
+
+
+    }
+
+
+
+
+
+
+
+    .amarillo {
+
+
+
+      background: #fff3cd;
+
+
+
+      color: #664d03;
+
+
+
+      border: 2px solid #ffca2c;
+
+
+
+    }
+
+
+
+
+
+
+
+    .rojoAviso {
+
+
+
+      background: #fde2e2;
+
+
+
+      color: #991b1b;
+
+
+
+      border: 2px solid #dc3545;
+
+
+
+    }
+
+
+
+
+
+
+
+    .azulAviso {
+
+
+
+      background: #e7eef8;
+
+
+
+      color: #1e3a5f;
+
+
+
+      border: 2px solid #6c8ebf;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       MENSAJES
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    #mensaje {
+
+
+
+      display: none;
+
+
+
+      margin-top: 17px;
+
+
+
+      padding: 18px;
+
+
+
+      border-radius: 12px;
+
+
+
+      text-align: center;
+
+
+
+      font-weight: bold;
+
+
+
+      line-height: 1.4;
+
+
+
+      font-size: 33px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .verde {
+
+
+
+      background: #dff3e4;
+
+
+
+      color: #166534;
+
+
+
+    }
+
+
+
+
+
+
+
+    .rojo {
+
+
+
+      background: #fde2e2;
+
+
+
+      color: #991b1b;
+
+
+
+    }
+
+
+
+
+
+
+
+    .gris {
+
+
+
+      background: #e8edf2;
+
+
+
+      color: #333;
+
+
+
+    }
+
+
+
+
+
+
+
+    .nota {
+
+
+
+      color: #555;
+
+
+
+      font-size: 30px;
+
+
+
+      line-height: 1.4;
+
+
+
+      margin: 9px 0 12px;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       PENDIENTES
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    #panelPendientes {
+
+
+
+      display: none;
+
+
+
+      margin-top: 21px;
+
+
+
+      border-top: 3px solid #ddd;
+
+
+
+      padding-top: 18px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .tituloPendientes {
+
+
+
+      text-align: center;
+
+
+
+      font-size: 41px;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 15px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .resumenPendientes {
+
+
+
+      display: flex;
+
+
+
+      gap: 7px;
+
+
+
+      margin-bottom: 17px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .contador {
+
+
+
+      flex: 1;
+
+
+
+      text-align: center;
+
+
+
+      background: #f1f3f5;
+
+
+
+      padding: 13px 3px;
+
+
+
+      border-radius: 10px;
+
+
+
+      font-size: 25px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .contador strong {
+
+
+
+      display: block;
+
+
+
+      font-size: 44px;
+
+
+
+      margin-top: 5px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .pendienteItem {
+
+
+
+      border: 2px solid #ddd;
+
+
+
+      border-radius: 13px;
+
+
+
+      padding: 17px;
+
+
+
+      margin-bottom: 12px;
+
+
+
+      background: #fafafa;
+
+
+
+      cursor: pointer;
+
+
+
+    }
+
+
+
+
+
+
+
+    .pendienteNombre {
+
+
+
+      font-size: 42px;
+
+
+
+      line-height: 1.2;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 10px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .pendienteDato {
+
+
+
+      font-size: 33px;
+
+
+
+      line-height: 1.55;
+
+
+
+      color: #444;
+
+
+
+    }
+
+
+
+
+
+
+
+    .abrirFicha {
+
+
+
+      margin-top: 11px;
+
+
+
+      font-size: 28px;
+
+
+
+      font-weight: bold;
+
+
+
+      color: #2457a7;
+
+
+
+    }
+
+
+
+
+
+
+
+    .sinPendientes {
+
+
+
+      text-align: center;
+
+
+
+      padding: 28px 14px;
+
+
+
+      background: #dff3e4;
+
+
+
+      color: #166534;
+
+
+
+      border-radius: 14px;
+
+
+
+      font-size: 39px;
+
+
+
+      font-weight: bold;
+
+
+
+      line-height: 1.4;
+
+
+
+    }
+
+
+
+
+
+
+
+    .todosLujan {
+
+
+
+      text-align: center;
+
+
+
+      padding: 30px 15px;
+
+
+
+      background: #f6eef8;
+
+
+
+      color: #63326d;
+
+
+
+      border: 2px solid #b98bc4;
+
+
+
+      border-radius: 14px;
+
+
+
+      font-size: 43px;
+
+
+
+      line-height: 1.35;
+
+
+
+      font-weight: bold;
+
+
+
+      font-style: italic;
+
+
+
+    }
+
+
+
+
+
+
+
+    #pendientesParroquia {
+
+
+
+      display: none;
+
+
+
+      gap: 8px;
+
+
+
+    }
+
+
+
+
+
+
+
+    #pendientesParroquia button {
+
+
+
+      flex: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       REGRESO EN FICHA
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .regresoBox {
+
+
+
+      display: none;
+
+
+
+      margin-top: 24px;
+
+
+
+      padding: 17px;
+
+
+
+      border: 2px solid #2457a7;
+
+
+
+      border-radius: 13px;
+
+
+
+      background: #eef4ff;
+
+
+
+    }
+
+
+
+
+
+
+
+    .regresoTitulo {
+
+
+
+      text-align: center;
+
+
+
+      font-size: 39px;
+
+
+
+      font-weight: bold;
+
+
+
+      margin-bottom: 11px;
+
+
+
+    }
+
+
+
+
+
+
+
+    #regresoActual {
+
+
+
+      text-align: center;
+
+
+
+      border-bottom: none;
+
+
+
+    }
+
+
+
+
+
+
+
+    .microRegresoBtns {
+
+
+
+      display: grid;
+
+
+
+      grid-template-columns: repeat(3, 1fr);
+
+
+
+      gap: 8px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .microRegresoBtns button {
+
+
+
+      margin-top: 0;
+
+
+
+      background: #2457a7;
+
+
+
+      color: white;
+
+
+
+      font-size: 31px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .microSeleccionado {
+
+
+
+      background: #218838 !important;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       SECCIONES
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .tituloSeccion {
+
+
+
+      font-size: 38px;
+
+
+
+      font-weight: bold;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       HORARIOS DE REGRESO
+
+
+
+       TRES COLUMNAS EN UNA SOLA FILA
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    .horariosMicros {
+
+
+
+      display: grid;
+
+
+
+      grid-template-columns: repeat(3, 1fr);
+
+
+
+      gap: 10px;
+
+
+
+      width: 100%;
+
+
+
+      margin-top: 17px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .horarioMicro {
+
+
+
+      min-width: 0;
+
+
+
+      text-align: center;
+
+
+
+      background: #f1f3f5;
+
+
+
+      border-radius: 13px;
+
+
+
+      padding: 13px 8px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .horarioMicro label {
+
+
+
+      font-size: 27px;
+
+
+
+      margin: 0 0 8px 0;
+
+
+
+      text-align: center;
+
+
+
+    }
+
+
+
+
+
+
+
+    .horarioMicro input {
+
+
+
+      width: 100%;
+
+
+
+      min-width: 0;
+
+
+
+      min-height: 66px;
+
+
+
+      margin: 0;
+
+
+
+      padding: 6px 2px;
+
+
+
+      text-align: center;
+
+
+
+      font-size: 27px;
+
+
+
+      font-weight: bold;
+
+
+
+      border: 2px solid #999;
+
+
+
+      border-radius: 10px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .guardadoHorario {
+
+
+
+      min-height: 27px;
+
+
+
+      margin-top: 6px;
+
+
+
+      font-size: 18px;
+
+
+
+      font-weight: bold;
+
+
+
+      color: #218838;
+
+
+
+      text-align: center;
+
+
+
+    }
+
+
+
+
+
+
+
+    .microBloqueado {
+
+
+
+      background: #218838 !important;
+
+
+
+      color: white;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* =========================================
+
+
+
+       CELULARES
+
+
+
+       ========================================= */
+
+
+
+
+
+
+
+    @media (max-width: 600px) {
+
+
+
+
+
+
+
+      .encabezado {
+
+
+
+        padding: 22px 4px 19px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .parroquia {
+
+
+
+        font-size: clamp(27px, 7.2vw, 42px);
+
+
+
+        margin-bottom: 13px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .titulo {
+
+
+
+        font-size: clamp(27px, 7.2vw, 42px);
+
+
+
+        margin-bottom: 13px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .lema {
+
+
+
+        font-size: clamp(20px, 5.55vw, 33px);
+
+
+
+      }
+
+
+
+
+
+
+
+      .version {
+
+
+
+        font-size: 17px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .app {
+
+
+
+        padding: 5px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .caja {
+
+
+
+        padding: 12px;
+
+
+
+      }
+
+
+
+
+
+
+
+      label {
+
+
+
+        font-size: 34px;
+
+
+
+      }
+
+
+
+
+
+
+
+      select {
+
+
+
+        font-size: 35px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .numeroFicha {
+
+
+
+        font-size: 43px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .nombreFicha {
+
+
+
+        font-size: 52px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .dato {
+
+
+
+        font-size: 31px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .dato strong {
+
+
+
+        font-size: 35px;
+
+
+
+      }
+
+
+
+
+
+
+
+      #estadoFicha {
+
+
+
+        font-size: 38px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .estadoTitulo {
+
+
+
+        font-size: 28px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .filaDosColumnas {
+
+
+
+        gap: 7px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .filaDosColumnas .dato {
+
+
+
+        padding-left: 2px;
+
+
+
+        padding-right: 2px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .microRegresoBtns {
+
+
+
+        grid-template-columns: 1fr;
+
+
+
+      }
+
+
+
+
+
+
+
+      .horariosMicros {
+
+
+
+        gap: 5px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .horarioMicro {
+
+
+
+        padding: 10px 4px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .horarioMicro label {
+
+
+
+        font-size: 22px;
+
+
+
+      }
+
+
+
+
+
+
+
+      .horarioMicro input {
+
+
+
+        min-height: 60px;
+
+
+
+        font-size: 21px;
+
+
+
+        padding: 4px 0;
+
+
+
+      }
+
+
+
+
+
+
+
+      .guardadoHorario {
+
+
+
+        font-size: 15px;
+
+
+
+      }
+
+
+
+    }
+
+
+
+
+
+
+
+  
+    .planillaBtn { background:#2457a7; color:white; min-height:62px; font-size:27px; margin-top:4px; }
+    .modalSalud { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.55); padding:14px; overflow:auto; }
+    .modalSaludContenido { max-width:900px; margin:20px auto; background:white; border-radius:16px; padding:20px; }
+    .modalSaludTitulo { font-size:38px; font-weight:900; text-align:center; margin-bottom:15px; }
+    .saludItem { padding:13px 4px; border-bottom:1px solid #ddd; font-size:25px; line-height:1.3; }
+    .saludItem strong { display:block; font-size:29px; margin-top:5px; }
+    .cerrarSalud { background:#333; color:white; }
+
+  
+
+    /* =========================================
+       CONFIRMACIÓN PROPIA DE LA APP
+       ========================================= */
+
+    .modalConfirmacionFondo {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.55);
+      padding: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modalConfirmacionCaja {
+      width: 100%;
+      max-width: 720px;
+      background: white;
+      border-radius: 18px;
+      padding: 26px 20px 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.28);
+      text-align: center;
+    }
+
+    .modalConfirmacionTexto {
+      font-size: 34px;
+      line-height: 1.35;
+      font-weight: 800;
+      white-space: pre-line;
+      margin-bottom: 20px;
+    }
+
+    .modalConfirmacionBotones {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .modalConfirmacionBotones button {
+      margin: 0;
+      min-height: 72px;
+      font-size: 29px;
+    }
+
+    .modalAceptar { background: #218838; color: white; }
+    .modalCancelar { background: #6c757d; color: white; }
+
+    @media (max-width: 600px) {
+      .modalConfirmacionTexto { font-size: 27px; }
+      .modalConfirmacionBotones button { font-size: 24px; min-height: 66px; }
+    }
+
+
+    .microCancelar {
+      background: white;
+      color: #b42318;
+      border: 2px solid #b42318;
+      margin-top: 10px;
+      font-size: 24px;
+      min-height: 58px;
+    }
+</style>
+
+
+
+
+
+
+
+
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Peregrinos a Luján 2026 — V24 Offline</title>
-<style>
-body{font-family:Arial,sans-serif;margin:0;background:#eef6ff;color:#123}
-main{max-width:680px;margin:auto;padding:18px}
-header{text-align:center;background:white;border-radius:18px;padding:16px;box-shadow:0 2px 10px #0001}
-header img{width:96px;height:96px;border-radius:22px;object-fit:cover}
-h1{font-size:25px;margin:8px 0 2px}.sub{font-size:14px}
-.status{display:flex;justify-content:space-between;gap:8px;margin:14px 0}
-.pill{background:white;border-radius:14px;padding:10px 12px;flex:1;font-weight:bold}
-.online{color:#087d35}.offline{color:#b44700}
-.card{background:white;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 2px 10px #0001}
-input,select,button{box-sizing:border-box;width:100%;font-size:18px;padding:14px;border-radius:12px;border:1px solid #b9c8d8;margin:6px 0}
-button{background:#0b5cab;color:white;border:0;font-weight:bold}
-button.secondary{background:#fff;color:#0b5cab;border:2px solid #0b5cab}
-button:disabled{opacity:.45}
-.small{font-size:13px;color:#526477}
-.result{font-size:16px;line-height:1.5}
-.queue{font-weight:bold}
-</style>
+<meta name="theme-color" content="#0b5cab">
+<script>
+/* V24 FINAL: puente GitHub Pages -> Apps Script para conservar TODA la interfaz V23 online. */
+(function(){
+  const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec";
+  function jsonp(params){
+    return new Promise((resolve,reject)=>{
+      const cb='v24cb_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+      const s=document.createElement('script');
+      const t=setTimeout(()=>{clean();reject(new Error('Sin respuesta del servidor'))},30000);
+      function clean(){clearTimeout(t);delete window[cb];s.remove()}
+      window[cb]=d=>{clean();resolve(d)};
+      s.onerror=()=>{clean();reject(new Error('Error de conexión'))};
+      s.src=API+'?'+new URLSearchParams({...params,callback:cb});
+      document.head.appendChild(s);
+    });
+  }
+  window.v24Jsonp=jsonp;
+  const state={success:null,failure:null};
+  function runner(){
+    return new Proxy({},{
+      get(_t,prop){
+        if(prop==='withSuccessHandler') return fn=>{state.success=fn;return runner()};
+        if(prop==='withFailureHandler') return fn=>{state.failure=fn;return runner()};
+        return (...args)=>{
+          const ok=state.success, fail=state.failure; state.success=null; state.failure=null;
+          jsonp({api:'rpc',fn:String(prop),args:JSON.stringify(args)})
+            .then(r=>{if(ok)ok(r)}).catch(e=>{if(fail)fail(e);else console.error(e)});
+        };
+      }
+    });
+  }
+  window.google=window.google||{}; google.script=google.script||{}; google.script.run=runner();
+})();
+</script>
+
 </head>
-<body><main>
-<header>
-<img src="icon-192.png" alt="">
-<h1>Peregrinos a Luján 2026</h1>
-<div class="sub">V24 OFFLINE · Parroquia Sagrada Eucaristía</div>
-</header>
-<div class="status">
-<div id="net" class="pill">Comprobando conexión…</div>
-<div class="pill">Pendientes: <span id="pending">0</span></div>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+  <div id="modalConfirmacion" class="modalConfirmacionFondo" role="dialog" aria-modal="true" aria-labelledby="modalConfirmacionTexto">
+    <div class="modalConfirmacionCaja">
+      <div id="modalConfirmacionTexto" class="modalConfirmacionTexto"></div>
+      <div class="modalConfirmacionBotones">
+        <button type="button" class="modalAceptar" onclick="resolverConfirmacion(true)">ACEPTAR</button>
+        <button type="button" class="modalCancelar" onclick="resolverConfirmacion(false)">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="encabezado">
+
+
+
+
+
+
+
+    <div class="parroquia">
+
+
+
+      Parroquia Sagrada Eucaristía
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="titulo">
+
+
+
+      52º Peregrinación a Luján 2026
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="lema">
+
+
+
+      “Madre, en tu abrazo nos reconocemos hermanos”
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="version">
+
+
+
+      VERSIÓN 23 — 01/10 · HOJA 9 DIRECTA
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="app">
+
+
+
+
+
+
+
+
+
+
+
+    <!-- BÚSQUEDA -->
+
+
+
+
+
+
+
+    <div class="caja">
+
+
+
+
+
+
+
+      <label for="punto">
+
+
+
+        Punto de control
+
+
+
+      </label>
+
+
+
+
+
+
+
+      <select
+
+
+
+        id="punto"
+
+
+
+        onchange="cambiarParada()"
+
+
+
+      >
+
+
+
+
+
+
+
+        <option value="PARROQUIA">
+
+
+
+          Parroquia
+
+
+
+        </option>
+
+
+
+
+
+
+
+        <option value="MORÓN">
+
+
+
+          Morón
+
+
+
+        </option>
+
+
+
+
+
+
+
+        <option value="MERLO">
+
+
+
+          Merlo
+
+
+
+        </option>
+
+
+
+
+
+
+
+        <option value="LA REJA">
+
+
+
+          La Reja
+
+
+
+        </option>
+
+
+
+
+
+
+
+        <option value="RODRÍGUEZ">
+
+
+
+          Rodríguez
+
+
+
+        </option>
+
+
+
+
+
+
+
+        <option value="LUJÁN">
+
+
+
+          Luján
+
+
+
+        </option>
+
+
+
+
+
+
+
+      </select>
+
+
+
+
+
+
+
+
+
+
+
+      <label for="numero">
+
+
+
+        N.º de peregrino
+
+
+
+      </label>
+
+
+
+
+
+
+
+      <input
+
+
+
+        id="numero"
+
+
+
+        type="number"
+
+
+
+        inputmode="numeric"
+
+
+
+        placeholder="Ej. 1"
+
+
+
+        autocomplete="off"
+
+
+
+      >
+
+
+
+
+
+
+
+
+
+
+
+      <button
+
+
+
+        id="botonBuscar"
+
+
+
+        class="buscar"
+
+
+
+        onclick="buscarPeregrino()"
+
+
+
+      >
+
+
+
+        BUSCAR PEREGRINO
+
+
+
+      </button>
+
+
+
+
+
+
+
+
+
+
+
+      <button
+
+
+
+        id="botonPendientes"
+
+
+
+        class="pendientesBtn"
+
+
+
+        onclick="verPendientes('')"
+
+
+
+      >
+
+
+
+        VER PEREGRINOS PENDIENTES
+
+
+
+      </button>
+
+
+
+
+
+
+
+
+
+
+
+      <div id="pendientesParroquia">
+
+
+
+
+
+
+
+        <button
+
+
+
+          class="pendientesBtn"
+
+
+
+          onclick="verPendientes('LINIERS')"
+
+
+
+        >
+
+
+
+          PENDIENTES — LINIERS
+
+
+
+        </button>
+
+
+
+
+
+
+
+        <button
+
+
+
+          class="pendientesBtn"
+
+
+
+          onclick="verPendientes('RODRÍGUEZ')"
+
+
+
+        >
+
+
+
+          PENDIENTES — RODRÍGUEZ
+
+
+
+        </button>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- FICHA -->
+
+
+
+
+
+
+
+      <div id="ficha">
+
+
+
+
+
+
+
+        <div
+
+
+
+          id="numeroFicha"
+
+
+
+          class="numeroFicha"
+
+
+
+        ></div>
+
+
+
+
+
+
+
+        <div
+
+
+
+          id="nombreFicha"
+
+
+
+          class="nombreFicha"
+
+
+
+        ></div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="filaDosColumnas">
+          <div class="dato">DNI:<strong id="dniFicha"></strong></div>
+          <div class="dato">Edad:<strong id="edadFicha"></strong></div>
+        </div>
+        <div class="filaDosColumnas">
+          <div class="dato">Cobertura médica:<strong id="coberturaFicha"></strong></div>
+          <div class="dato alimentacionDato">Alimentación:<strong id="alimentacionFicha"></strong></div>
+        </div>
+        <div class="filaDosColumnas">
+          <div class="dato">Grupo sanguíneo:<strong id="grupoFicha"></strong></div>
+          <div class="dato">Planilla de salud:<button type="button" class="planillaBtn" onclick="abrirPlanillaSalud()">VER PLANILLA DE SALUD</button></div>
+        </div>
+        <div class="filaDosColumnas">
+          <div class="dato">Teléfono:<strong id="telefonoFicha"></strong></div>
+          <div class="dato">Acompañante:<strong id="viajaConFicha"></strong></div>
+        </div>
+        <div class="dato">Salida:<strong id="salidaFicha"></strong></div>
+
+        <div class="dato">
+
+
+
+          Parada anterior:
+
+
+
+          <strong id="anteriorFicha"></strong>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="estado">
+
+
+
+
+
+
+
+          <div class="estadoTitulo">
+
+
+
+            ESTADO ACTUAL
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div id="estadoFicha"></div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div id="accionPresente">
+
+
+
+
+
+
+
+          <button
+
+
+
+            id="botonPresente"
+
+
+
+            class="presente"
+
+
+
+            onclick="registrarPresente()"
+
+
+
+          >
+
+
+
+            ✓ PRESENTE
+
+
+
+          </button>
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <div id="accionCancelarPresente">
+
+
+
+          <button
+
+            id="botonCancelarPresente"
+
+            class="cancelarPresente"
+
+            onclick="cancelarPresente()"
+
+          >
+
+            CANCELAR PRESENTE
+
+          </button>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div id="accionSeQueda">
+
+
+
+
+
+
+
+          <div class="aclaracionContinua">
+
+
+
+            Si continúa caminando no hace falta marcar nada.
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <button
+
+
+
+            id="botonQueda"
+
+
+
+            class="queda"
+
+
+
+            onclick="registrarContinuidad('SE QUEDA')"
+
+
+
+          >
+
+
+
+            SE QUEDA
+
+
+
+          </button>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div id="accionCambioDecision">
+
+
+
+
+
+
+
+          <button
+
+
+
+            id="botonContinua"
+
+
+
+            class="continua"
+
+
+
+            onclick="registrarContinuidad('CONTINUA')"
+
+
+
+          >
+
+
+
+            CONTINÚA
+
+
+
+          </button>
+
+
+
+
+
+
+
+          <button
+
+
+
+            id="botonQuedaOtraVez"
+
+
+
+            class="queda"
+
+
+
+            disabled
+
+
+
+          >
+
+
+
+            ✓ SE QUEDA
+
+
+
+          </button>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div
+
+
+
+          id="abrazoAviso"
+
+
+
+          class="abrazo"
+
+
+
+        ></div>
+
+
+
+
+
+
+
+
+
+
+
+        <div id="aviso">
+
+
+
+
+
+
+
+          <div id="tituloAviso"></div>
+
+
+
+
+
+
+
+          <div id="textoAviso"></div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- REGRESO AL FINAL DE LA FICHA -->
+
+
+
+
+
+
+
+        <div
+
+
+
+          id="regresoBox"
+
+
+
+          class="regresoBox"
+
+
+
+        >
+
+
+
+
+
+
+
+          <div class="regresoTitulo">
+
+
+
+            REGRESO A CABA
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div
+
+
+
+            id="regresoActual"
+
+
+
+            class="dato"
+
+
+
+          ></div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="microRegresoBtns">
+
+
+
+
+
+
+
+            <button
+
+
+
+              id="regMicro1"
+
+
+
+              onclick="asignarMicro('MICRO 1')"
+
+
+
+            >
+
+
+
+              MICRO 1
+
+
+
+            </button>
+
+
+
+
+
+
+
+            <button
+
+
+
+              id="regMicro2"
+
+
+
+              onclick="asignarMicro('MICRO 2')"
+
+
+
+            >
+
+
+
+              MICRO 2
+
+
+
+            </button>
+
+
+
+
+
+
+
+            <button
+
+
+
+              id="regMicro3"
+
+
+
+              onclick="asignarMicro('MICRO 3')"
+
+
+
+            >
+
+
+
+              MICRO 3
+
+
+
+            </button>
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <div id="mensaje"></div>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- PENDIENTES -->
+
+
+
+
+
+
+
+      <div id="panelPendientes">
+
+
+
+
+
+
+
+        <div
+
+
+
+          id="tituloPendientes"
+
+
+
+          class="tituloPendientes"
+
+
+
+        ></div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="resumenPendientes">
+
+
+
+
+
+
+
+          <div class="contador">
+
+
+
+            Esperados
+
+
+
+            <strong id="cantidadEsperados">0</strong>
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div class="contador">
+
+
+
+            Presentes
+
+
+
+            <strong id="cantidadPresentes">0</strong>
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div class="contador">
+
+
+
+            Pendientes
+
+
+
+            <strong id="cantidadPendientes">0</strong>
+
+
+
+          </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div id="listaPendientes"></div>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- MICROS DE IDA -->
+
+
+
+
+
+
+
+    <div class="caja">
+
+
+
+
+
+
+
+      <div class="tituloSeccion">
+
+
+
+        Llegada de los micros
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="nota">
+
+
+
+        Confirmar cuando llegue el aviso de que los micros arribaron al punto de inicio.
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <button
+
+
+
+        id="microInicioLiniers"
+
+
+
+        class="micro"
+
+
+
+        onclick="llegaronMicros('LINIERS')"
+
+
+
+      >
+
+
+
+        MICROS LLEGARON A LINIERS
+
+
+
+      </button>
+      <button id="cancelarMicroLiniers" class="microCancelar" onclick="cancelarMicros('LINIERS')" style="display:none">CANCELAR LLEGADA A LINIERS</button>
+
+
+
+
+
+
+
+
+
+
+
+      <button
+
+
+
+        id="microInicioRodriguez"
+
+
+
+        class="micro"
+
+
+
+        onclick="llegaronMicros('RODRÍGUEZ')"
+
+
+
+      >
+
+
+
+        MICROS LLEGARON A RODRÍGUEZ
+
+
+
+      </button>
+      <button id="cancelarMicroRodriguez" class="microCancelar" onclick="cancelarMicros('RODRÍGUEZ')" style="display:none">CANCELAR LLEGADA A RODRÍGUEZ</button>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- REGRESO DESDE LUJÁN -->
+
+
+
+
+
+
+
+    <div class="caja">
+
+
+
+
+
+
+
+      <div class="tituloSeccion">
+
+
+
+        Regreso desde Luján
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="nota">
+
+
+
+        Horarios de los micros de regreso.
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <div class="horariosMicros">
+
+
+
+
+
+
+
+        <div class="horarioMicro">
+
+
+
+
+
+
+
+          <label for="horaMicro1">
+
+
+
+            Micro 1
+
+
+
+          </label>
+
+
+
+
+
+
+
+          <input
+
+
+
+            id="horaMicro1"
+
+
+
+            type="time"
+
+
+
+            onchange="guardarHorarioAutomatico('MICRO 1','horaMicro1','guardado1')"
+
+
+
+          >
+
+
+
+
+
+
+
+          <div
+
+
+
+            id="guardado1"
+
+
+
+            class="guardadoHorario"
+
+
+
+          ></div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="horarioMicro">
+
+
+
+
+
+
+
+          <label for="horaMicro2">
+
+
+
+            Micro 2
+
+
+
+          </label>
+
+
+
+
+
+
+
+          <input
+
+
+
+            id="horaMicro2"
+
+
+
+            type="time"
+
+
+
+            onchange="guardarHorarioAutomatico('MICRO 2','horaMicro2','guardado2')"
+
+
+
+          >
+
+
+
+
+
+
+
+          <div
+
+
+
+            id="guardado2"
+
+
+
+            class="guardadoHorario"
+
+
+
+          ></div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="horarioMicro">
+
+
+
+
+
+
+
+          <label for="horaMicro3">
+
+
+
+            Micro 3
+
+
+
+          </label>
+
+
+
+
+
+
+
+          <input
+
+
+
+            id="horaMicro3"
+
+
+
+            type="time"
+
+
+
+            onchange="guardarHorarioAutomatico('MICRO 3','horaMicro3','guardado3')"
+
+
+
+          >
+
+
+
+
+
+
+
+          <div
+
+
+
+            id="guardado3"
+
+
+
+            class="guardadoHorario"
+
+
+
+          ></div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="modalSalud" class="modalSalud" onclick="cerrarPlanillaSaludFondo(event)">
+    <div class="modalSaludContenido">
+      <div class="modalSaludTitulo">PLANILLA DE SALUD</div>
+      <div id="nombreSalud" class="pendienteNombre" style="text-align:center"></div>
+      <div id="contenidoSalud"></div>
+      <button type="button" class="cerrarSalud" onclick="cerrarPlanillaSalud()">CERRAR</button>
+    </div>
+  </div>
+
+<div id="modalPinMicros" class="modalConfirmacionFondo" role="dialog" aria-modal="true" style="display:none;">
+  <div class="modalConfirmacionCaja">
+    <div class="modalConfirmacionTexto">ACCIÓN RESTRINGIDA<br><span style="font-size:.8em;font-weight:500;">Ingresá el PIN para continuar.</span></div>
+    <input id="pinMicrosInput" type="password" inputmode="numeric" maxlength="4" autocomplete="off" style="width:100%;box-sizing:border-box;font-size:30px;text-align:center;padding:12px;margin:12px 0 18px;border:2px solid #999;border-radius:10px;letter-spacing:8px;">
+    <div class="modalConfirmacionBotones">
+      <button type="button" onclick="resolverPinMicros(false)">CANCELAR</button>
+      <button type="button" onclick="resolverPinMicros(true)">ACEPTAR</button>
+    </div>
+  </div>
 </div>
 
-<section class="card">
-<label>Punto</label>
-<select id="point">
-<option>Parroquia</option><option>Morón</option><option>Merlo</option>
-<option>La Reja</option><option>Rodríguez</option><option>Luján</option>
-</select>
-<label>Nº / DNI / nombre</label>
-<input id="q" autocomplete="off" placeholder="Buscar peregrino">
-<button id="search">BUSCAR</button>
-<div id="result" class="result"></div>
-</section>
-
-<section id="actions" class="card" hidden>
-<button data-action="PRESENTE">PRESENTE</button>
-<button data-action="SE QUEDA">SE QUEDA</button>
-<button data-action="CONTINUA">CONTINÚA</button>
-<p class="small">Sin Internet, el movimiento queda guardado en este dispositivo con su fecha y hora y se sincroniza al recuperar conexión.</p>
-</section>
-
-<section class="card">
-<button id="refresh" class="secondary">ACTUALIZAR NÓMINA</button>
-<div class="small">Última nómina descargada: <span id="updated">—</span></div>
-</section>
-</main>
 <script>
-const API_URL='https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec';
-const K_ROSTER='lujan24_roster',K_QUEUE='lujan24_queue',K_UPDATED='lujan24_updated';
-let selected=null;
-const $=s=>document.querySelector(s);
-function load(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
-function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
-function queue(){return load(K_QUEUE,[])}
-function paint(){
- const on=navigator.onLine;
- $('#net').textContent=on?'ONLINE':'OFFLINE';
- $('#net').className='pill '+(on?'online':'offline');
- $('#pending').textContent=queue().length;
- $('#updated').textContent=localStorage.getItem(K_UPDATED)||'—';
+
+
+
+
+
+
+
+let peregrinoSeleccionado = null;
+
+
+
+let guardando = false;
+
+let accionConfirmadaPendiente = null;
+let accionPinMicrosPendiente = null;
+function pedirPinMicros(alAceptar) {
+  accionPinMicrosPendiente = alAceptar;
+  const input = document.getElementById('pinMicrosInput');
+  input.value = '';
+  document.getElementById('modalPinMicros').style.display = 'flex';
+  setTimeout(function(){ input.focus(); }, 50);
 }
-function norm(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
-function findLocal(q){
- const n=norm(q),r=load(K_ROSTER,[]);
- return r.find(p=>norm(p.numero)===n||norm(p.dni)===n)||r.find(p=>norm(p.nombre).includes(n));
+function resolverPinMicros(aceptar) {
+  const accion = accionPinMicrosPendiente;
+  const pin = document.getElementById('pinMicrosInput').value;
+  accionPinMicrosPendiente = null;
+  document.getElementById('modalPinMicros').style.display = 'none';
+  if (aceptar && typeof accion === 'function') accion(pin);
 }
-function show(p){
- selected=p; $('#actions').hidden=!p;
- $('#result').innerHTML=p?`<hr><b>${p.nombre}</b><br>Nº ${p.numero} · DNI ${p.dni||'—'}<br>Edad: ${p.edad||'—'} · Tel: ${p.telefono||'—'}<br>Alimentación: ${p.alimentacion||'—'}<br>Cobertura: ${p.cobertura||'—'}<br>Grupo sanguíneo: ${p.grupo||'—'}<br>Salida: ${p.salida||'—'}<br>Acompañante: ${p.acompanante||'—'}`:'No encontrado en la nómina guardada.';
+
+
+function pedirConfirmacion(texto, alAceptar) {
+  accionConfirmadaPendiente = alAceptar;
+  document.getElementById('modalConfirmacionTexto').textContent = texto;
+  document.getElementById('modalConfirmacion').style.display = 'flex';
 }
-$('#search').onclick=()=>show(findLocal($('#q').value));
-document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{
- if(!selected)return;
- const item={id:crypto.randomUUID(),numero:selected.numero,punto:$('#point').value,accion:b.dataset.action,fechaCliente:new Date().toISOString()};
- const a=queue();a.push(item);save(K_QUEUE,a);paint();
- $('#result').insertAdjacentHTML('beforeend',`<p><b>${b.dataset.action}</b> guardado${navigator.onLine?' para sincronizar':' OFFLINE'}.</p>`);
- if(navigator.onLine) sync();
-});
-async function jsonp(params){
- return new Promise((resolve,reject)=>{
-  const cb='cb_'+Date.now()+'_'+Math.random().toString(36).slice(2);
-  const s=document.createElement('script');
-  const t=setTimeout(()=>{cleanup();reject(new Error('timeout'))},15000);
-  function cleanup(){clearTimeout(t);delete window[cb];s.remove()}
-  window[cb]=d=>{cleanup();resolve(d)};
-  s.onerror=()=>{cleanup();reject(new Error('red'))};
-  s.src=API_URL+'?'+new URLSearchParams({...params,callback:cb});
-  document.head.appendChild(s);
- });
+
+function resolverConfirmacion(aceptar) {
+  const accion = accionConfirmadaPendiente;
+  accionConfirmadaPendiente = null;
+  document.getElementById('modalConfirmacion').style.display = 'none';
+
+  if (aceptar && typeof accion === 'function') {
+    accion();
+  }
 }
-async function refreshRoster(){
- if(!navigator.onLine||API_URL.startsWith('PEGAR_'))return;
- const d=await jsonp({api:'roster'});
- if(d.ok){save(K_ROSTER,d.peregrinos);localStorage.setItem(K_UPDATED,new Date().toLocaleString('es-AR'));paint()}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   CAMBIO DE PARADA
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function cambiarParada() {
+
+
+
+
+
+
+
+  limpiarBusqueda();
+
+
+
+  cerrarPendientes();
+
+
+
+  actualizarBotonesPendientes();
+
+
+
 }
-async function sync(){
- if(!navigator.onLine||API_URL.startsWith('PEGAR_'))return;
- let a=queue(); if(!a.length)return;
- for(const item of [...a]){
-   try{
-    const d=await jsonp({api:'sync',payload:JSON.stringify(item)});
-    if(d.ok){a=a.filter(x=>x.id!==item.id);save(K_QUEUE,a);paint()}
-   }catch(e){break}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   BUSCAR
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function buscarPeregrino() {
+
+
+
+
+
+
+
+  if (guardando) return;
+
+
+
+
+
+
+
+  const numero =
+
+
+
+    document
+
+
+
+      .getElementById('numero')
+
+
+
+      .value
+
+
+
+      .trim();
+
+
+
+
+
+
+
+  const punto =
+
+
+
+    document
+
+
+
+      .getElementById('punto')
+
+
+
+      .value;
+
+
+
+
+
+
+
+  if (!numero) {
+
+
+
+
+
+
+
+    mostrarMensaje(
+
+
+
+      'Ingresá un número de peregrino.',
+
+
+
+      'rojo'
+
+
+
+    );
+
+
+
+
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  cerrarPendientes();
+
+
+
+
+
+
+
+  peregrinoSeleccionado = null;
+
+
+
+
+
+
+
+  ocultarAcciones();
+
+
+
+  ocultarAviso();
+
+
+
+  ocultarAbrazo();
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('ficha')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  mostrarMensaje(
+
+
+
+    'Buscando...',
+
+
+
+    'gris'
+
+
+
+  );
+
+
+
+
+
+
+
+  bloquearBuscar(true);
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(resultado) {
+
+
+
+
+
+
+
+        bloquearBuscar(false);
+
+
+
+
+
+
+
+        if (!resultado) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            'No hubo respuesta del servidor.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        if (!resultado.ok) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            resultado.mensaje,
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        peregrinoSeleccionado =
+
+
+
+          resultado.ficha;
+
+
+
+
+
+
+
+        mostrarFicha(
+
+
+
+          resultado.ficha
+
+
+
+        );
+
+
+
+
+
+
+
+        ocultarMensaje();
+
+
+
+        if (
+
+          resultado.etapa === 'PRESENTE_CONTINUA' ||
+
+          resultado.etapa === 'SE_QUEDA_ACTIVO' ||
+
+          resultado.tipo === 'PRESENTE_PARROQUIA' ||
+
+          resultado.tipo === 'LLEGO'
+
+        ) {
+
+          document
+
+            .getElementById('accionCancelarPresente')
+
+            .style.display = 'block';
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.etapa ===
+
+
+
+          'REGISTRAR_PRESENTE'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          document
+
+
+
+            .getElementById('accionPresente')
+
+
+
+            .style.display = 'block';
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.etapa ===
+
+
+
+          'PRESENTE_CONTINUA'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          document
+
+
+
+            .getElementById('accionSeQueda')
+
+
+
+            .style.display = 'block';
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.etapa ===
+
+
+
+          'SE_QUEDA_ACTIVO'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          document
+
+
+
+            .getElementById('accionCambioDecision')
+
+
+
+            .style.display = 'block';
+
+
+
+
+
+
+
+          mostrarAbrazo(
+
+
+
+            resultado.abrazo ||
+
+
+
+            'Le damos un abrazo de hermano'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'PRESENTE_PARROQUIA'
+
+
+
+        ) {
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'LLEGO'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAbrazo(
+
+
+
+            resultado.abrazo ||
+
+
+
+            'Un abrazo que llegó a los pies de la Virgen'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'SE_QUEDO'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAviso(
+
+
+
+            'NO DEBE CONTINUAR',
+
+
+
+            resultado.mensaje,
+
+
+
+            'rojoAviso'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'NO_CORRESPONDE'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAviso(
+
+
+
+            'ESTA PARADA NO CORRESPONDE',
+
+
+
+            resultado.mensaje,
+
+
+
+            'azulAviso'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'FALTA_INICIO'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAviso(
+
+
+
+            'AÚN NO INICIÓ LA CAMINATA',
+
+
+
+            resultado.mensaje,
+
+
+
+            'amarillo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.tipo ===
+
+
+
+          'FALTA_ANTERIOR'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAviso(
+
+
+
+            'NO HABILITADO EN ESTA PARADA',
+
+
+
+            resultado.mensaje,
+
+
+
+            'rojoAviso'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        if (
+
+
+
+          resultado.etapa ===
+
+
+
+          'BLOQUEADO'
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarAviso(
+
+
+
+            'NO HABILITADO',
+
+
+
+            resultado.mensaje,
+
+
+
+            'rojoAviso'
+
+
+
+          );
+
+
+
+        }
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(error) {
+
+
+
+
+
+
+
+        bloquearBuscar(false);
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' + error.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .buscarPeregrino(
+
+
+
+      numero,
+
+
+
+      punto
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   FICHA
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function mostrarFicha(ficha) {
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('numeroFicha')
+
+
+
+    .textContent =
+
+
+
+      'PEREGRINO Nº ' +
+
+
+
+      ficha.numero;
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('nombreFicha')
+      .textContent = ficha.nombre || '—';
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('dniFicha')
+
+
+
+    .textContent =
+
+
+
+      ficha.dni || '—';
+
+  document.getElementById('edadFicha').textContent = ficha.edad || '—';
+  document.getElementById('coberturaFicha').textContent = ficha.coberturaMedica || '—';
+  document.getElementById('grupoFicha').textContent = ficha.grupoSanguineo || '—';
+
+
+
+
+
+
+
+
+
+
+
+  mostrarTelefono(
+
+
+
+    ficha.telefono
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('alimentacionFicha')
+
+
+
+    .textContent =
+
+
+
+      ficha.alimentacion || '—';
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('salidaFicha')
+
+
+
+    .textContent =
+
+
+
+      ficha.salida || '—';
+
+  document.getElementById('viajaConFicha').textContent = ficha.viajaCon || '—';
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('anteriorFicha')
+
+
+
+    .textContent =
+
+
+
+
+
+
+
+      ficha.paradaAnterior
+
+
+
+
+
+
+
+        ? ficha.paradaAnterior +
+
+
+
+          ' — ' +
+
+
+
+          ficha.horaParadaAnterior
+
+
+
+
+
+
+
+        : '—';
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('estadoFicha')
+
+
+
+    .textContent =
+
+
+
+      ficha.estado;
+
+
+
+
+
+
+
+
+
+
+
+  mostrarRegreso(
+
+
+
+    ficha
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('ficha')
+
+
+
+    .style.display = 'block';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   TELÉFONO
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function abrirPlanillaSalud() {
+  if (!peregrinoSeleccionado) return;
+  document.getElementById('nombreSalud').textContent = peregrinoSeleccionado.nombre || '';
+  const cont = document.getElementById('contenidoSalud');
+  cont.innerHTML = '<div class="saludItem"><strong>Cargando planilla de salud...</strong></div>';
+  document.getElementById('modalSalud').style.display = 'block';
+
+  google.script.run
+    .withSuccessHandler(function(resultado) {
+      cont.innerHTML = '';
+      if (!resultado || !resultado.ok) {
+        cont.innerHTML = '<div class="saludItem"><strong>No se pudo cargar la planilla de salud.</strong></div>';
+        return;
+      }
+      const items = resultado.salud || [];
+      peregrinoSeleccionado.planillaSalud = items;
+      for (let i = 0; i < items.length; i++) {
+        const item = document.createElement('div'); item.className = 'saludItem';
+        const pregunta = document.createElement('div'); pregunta.textContent = items[i].pregunta || 'Dato de salud';
+        const respuesta = document.createElement('strong'); respuesta.textContent = items[i].respuesta || '—';
+        item.appendChild(pregunta); item.appendChild(respuesta); cont.appendChild(item);
+      }
+    })
+    .withFailureHandler(function() {
+      cont.innerHTML = '<div class="saludItem"><strong>No se pudo cargar la planilla de salud.</strong></div>';
+    })
+    .obtenerSaludPeregrino(peregrinoSeleccionado.numero);
+}
+function cerrarPlanillaSalud() { document.getElementById('modalSalud').style.display = 'none'; }
+function cerrarPlanillaSaludFondo(event) { if (event.target.id === 'modalSalud') cerrarPlanillaSalud(); }
+
+function mostrarTelefono(telefono) {
+
+
+
+
+
+
+
+  const contenedor =
+
+
+
+    document.getElementById(
+
+
+
+      'telefonoFicha'
+
+
+
+    );
+
+
+
+
+
+
+
+  contenedor.innerHTML = '';
+
+
+
+
+
+
+
+  if (!telefono) {
+
+
+
+
+
+
+
+    contenedor.textContent = '—';
+
+
+
+
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  const link =
+
+
+
+    document.createElement('a');
+
+
+
+
+
+
+
+  link.className =
+
+
+
+    'telefonoLink';
+
+
+
+
+
+
+
+  link.textContent =
+
+
+
+    telefono;
+
+
+
+
+
+
+
+  link.href =
+
+
+
+    'tel:' +
+
+
+
+    limpiarTelefono(telefono);
+
+
+
+
+
+
+
+  contenedor.appendChild(link);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function limpiarTelefono(telefono) {
+
+
+
+
+
+
+
+  return String(telefono || '')
+
+
+
+    .replace(/[^0-9+]/g, '');
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   PRESENTE
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function registrarPresente() {
+
+
+
+
+
+
+
+  if (
+
+
+
+    guardando ||
+
+
+
+    !peregrinoSeleccionado
+
+
+
+  ) {
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  const numero =
+
+
+
+    peregrinoSeleccionado.numero;
+
+
+
+
+
+
+
+  const punto =
+
+
+
+    document
+
+
+
+      .getElementById('punto')
+
+
+
+      .value;
+
+
+
+
+
+
+
+  guardando = true;
+
+
+
+
+
+
+
+  bloquearAcciones(true);
+
+
+
+
+
+
+
+  mostrarMensaje(
+
+
+
+    'Registrando llegada...',
+
+
+
+    'gris'
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(resultado) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+        bloquearAcciones(false);
+
+
+
+
+
+
+
+        if (
+
+
+
+          !resultado ||
+
+
+
+          !resultado.ok
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            resultado
+
+
+
+              ? resultado.mensaje
+
+
+
+              : 'No hubo respuesta.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        setTimeout(
+
+
+
+          function() {
+
+
+
+            buscarPeregrino();
+
+
+
+          },
+
+
+
+          200
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(error) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+        bloquearAcciones(false);
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' +
+
+
+
+          error.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .registrarPresente(
+
+
+
+      numero,
+
+
+
+      punto
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+   CANCELAR PRESENTE
+
+   ========================================= */
+
+
+
+function cancelarPresente() {
+  if (guardando || !peregrinoSeleccionado) return;
+
+  const numero = peregrinoSeleccionado.numero;
+  const punto = document.getElementById('punto').value;
+
+  pedirConfirmacion(
+    '¿Seguro que querés cancelar el PRESENTE de este peregrino en ' +
+      punto.toUpperCase() +
+      '?\n\nUsar únicamente si el registro fue realizado por error.',
+    function() { ejecutarCancelarPresente(numero, punto); }
+  );
+}
+
+function ejecutarCancelarPresente(numero, punto) {
+  if (guardando) return;
+
+  guardando = true;
+  bloquearAcciones(true);
+  mostrarMensaje('Cancelando PRESENTE...', 'gris');
+
+  google.script.run
+    .withSuccessHandler(function(resultado) {
+      guardando = false;
+      bloquearAcciones(false);
+
+      if (!resultado || !resultado.ok) {
+        mostrarMensaje(resultado ? resultado.mensaje : 'No hubo respuesta.', 'rojo');
+        return;
+      }
+
+      setTimeout(function() { buscarPeregrino(); }, 200);
+    })
+    .withFailureHandler(function(error) {
+      guardando = false;
+      bloquearAcciones(false);
+      mostrarMensaje('ERROR: ' + error.message, 'rojo');
+    })
+    .cancelarPresente(numero, punto);
+}
+
+
+
+
+
+/* =========================================
+
+
+
+   SE QUEDA / CONTINÚA
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function registrarContinuidad(accion) {
+  if (guardando || !peregrinoSeleccionado) return;
+
+  if (normalizarTexto(accion) === 'CONTINUA') {
+    const punto = document.getElementById('punto').value;
+    pedirConfirmacion(
+      '¿Seguro que querés cambiar la decisión y registrar que este peregrino CONTINÚA desde ' +
+        punto.toUpperCase() + '?',
+      function() { ejecutarRegistrarContinuidad(accion); }
+    );
+    return;
+  }
+
+  ejecutarRegistrarContinuidad(accion);
+}
+
+function ejecutarRegistrarContinuidad(accion) {
+
+
+
+
+
+
+
+  if (
+
+
+
+    guardando ||
+
+
+
+    !peregrinoSeleccionado
+
+
+
+  ) {
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  const numero =
+
+
+
+    peregrinoSeleccionado.numero;
+
+
+
+
+
+
+
+  const punto =
+
+
+
+    document
+
+
+
+      .getElementById('punto')
+
+
+
+      .value;
+
+
+
+
+
+
+
+  guardando = true;
+
+
+
+
+
+
+
+  bloquearAcciones(true);
+
+
+
+
+
+
+
+  mostrarMensaje(
+
+
+
+    accion === 'SE QUEDA'
+
+
+
+      ? 'Registrando SE QUEDA...'
+
+
+
+      : 'Registrando CONTINÚA...',
+
+
+
+    'gris'
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(resultado) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+        bloquearAcciones(false);
+
+
+
+
+
+
+
+        if (
+
+
+
+          !resultado ||
+
+
+
+          !resultado.ok
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            resultado
+
+
+
+              ? resultado.mensaje
+
+
+
+              : 'No hubo respuesta.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        setTimeout(
+
+
+
+          function() {
+
+
+
+            buscarPeregrino();
+
+
+
+          },
+
+
+
+          200
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(error) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+        bloquearAcciones(false);
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' +
+
+
+
+          error.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .registrarContinuidad(
+
+
+
+      numero,
+
+
+
+      punto,
+
+
+
+      accion
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   PENDIENTES
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function verPendientes(salidaFiltro) {
+
+
+
+
+
+
+
+  if (guardando) {
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  const punto =
+
+
+
+    document
+
+
+
+      .getElementById('punto')
+
+
+
+      .value;
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('ficha')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  peregrinoSeleccionado = null;
+
+
+
+
+
+
+
+  ocultarAcciones();
+
+
+
+  ocultarAviso();
+
+
+
+  ocultarAbrazo();
+
+
+
+  ocultarMensaje();
+
+
+
+
+
+
+
+  mostrarMensaje(
+
+
+
+    'Cargando pendientes...',
+
+
+
+    'gris'
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(resultado) {
+
+
+
+
+
+
+
+        ocultarMensaje();
+
+
+
+
+
+
+
+        if (
+
+
+
+          !resultado ||
+
+
+
+          !resultado.ok
+
+
+
+        ) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            resultado
+
+
+
+              ? resultado.mensaje
+
+
+
+              : 'No hubo respuesta.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        mostrarPendientes(
+
+
+
+          resultado
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(error) {
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' +
+
+
+
+          error.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .obtenerPendientes(
+
+
+
+      punto,
+
+
+
+      salidaFiltro || ''
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function mensajeSinPendientes(punto) {
+
+
+
+
+
+
+
+  const p =
+
+
+
+    normalizarTexto(punto);
+
+
+
+
+
+
+
+  if (p === 'MORON') {
+
+
+
+    return 'No hay peregrinos pendientes, venimos bien!';
+
+
+
+  }
+
+
+
+
+
+
+
+  if (p === 'MERLO') {
+
+
+
+    return 'No hay peregrinos pendientes, a seguir con alegría!';
+
+
+
+  }
+
+
+
+
+
+
+
+  if (p === 'LA REJA') {
+
+
+
+    return 'No hay peregrinos pendientes, seguimos felices!';
+
+
+
+  }
+
+
+
+
+
+
+
+  if (p === 'RODRIGUEZ') {
+
+
+
+    return 'No hay peregrinos pendientes, último esfuerzo... Ánimo!';
+
+
+
+  }
+
+
+
+
+
+
+
+  if (p === 'LUJAN') {
+
+
+
+    return 'Llegaron todos, podemos volver en paz.';
+
+
+
+  }
+
+
+
+
+
+
+
+  return 'No hay peregrinos pendientes.';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function mostrarPendientes(resultado) {
+
+
+
+
+
+
+
+  const panel =
+
+
+
+    document.getElementById(
+
+
+
+      'panelPendientes'
+
+
+
+    );
+
+
+
+
+
+
+
+  let titulo =
+
+
+
+    'Pendientes en ' +
+
+
+
+    resultado.punto;
+
+
+
+
+
+
+
+  if (resultado.salidaFiltro) {
+
+
+
+
+
+
+
+    titulo +=
+
+
+
+      ' — Salida ' +
+
+
+
+      resultado.salidaFiltro;
+
+
+
+  }
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('tituloPendientes')
+
+
+
+    .textContent = titulo;
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('cantidadEsperados')
+
+
+
+    .textContent =
+
+
+
+      resultado.esperados;
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('cantidadPresentes')
+
+
+
+    .textContent =
+
+
+
+      resultado.presentes;
+
+
+
+
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('cantidadPendientes')
+
+
+
+    .textContent =
+
+
+
+      resultado.pendientesCantidad;
+
+
+
+
+
+
+
+
+
+
+
+  const lista =
+
+
+
+    document.getElementById(
+
+
+
+      'listaPendientes'
+
+
+
+    );
+
+
+
+
+
+
+
+  lista.innerHTML = '';
+
+
+
+
+
+
+
+
+
+
+
+  if (
+
+
+
+    resultado.pendientes.length === 0
+
+
+
+  ) {
+
+
+
+
+
+
+
+    const vacio =
+
+
+
+      document.createElement('div');
+
+
+
+
+
+
+
+    if (
+
+
+
+      normalizarTexto(resultado.punto) ===
+
+
+
+      'LUJAN'
+
+
+
+    ) {
+
+
+
+
+
+
+
+      vacio.className =
+
+
+
+        'todosLujan';
+
+
+
+
+
+
+
+    } else {
+
+
+
+
+
+
+
+      vacio.className =
+
+
+
+        'sinPendientes';
+
+
+
+    }
+
+
+
+
+
+
+
+    vacio.textContent =
+
+
+
+      mensajeSinPendientes(
+
+
+
+        resultado.punto
+
+
+
+      );
+
+
+
+
+
+
+
+    lista.appendChild(
+
+
+
+      vacio
+
+
+
+    );
+
+
+
+
+
+
+
+    panel.style.display =
+
+
+
+      'block';
+
+
+
+
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  for (
+
+
+
+    let i = 0;
+
+
+
+    i < resultado.pendientes.length;
+
+
+
+    i++
+
+
+
+  ) {
+
+
+
+
+
+
+
+    const p =
+
+
+
+      resultado.pendientes[i];
+
+
+
+
+
+
+
+    const item =
+
+
+
+      document.createElement('div');
+
+
+
+
+
+
+
+    item.className =
+
+
+
+      'pendienteItem';
+
+
+
+
+
+
+
+    item.onclick =
+
+
+
+      function() {
+
+
+
+        abrirPendiente(p.numero);
+
+
+
+      };
+
+
+
+
+
+
+
+
+
+
+
+    const nombre =
+
+
+
+      document.createElement('div');
+
+
+
+
+
+
+
+    nombre.className =
+
+
+
+      'pendienteNombre';
+
+
+
+
+
+
+
+    nombre.textContent =
+
+
+
+      'Nº ' +
+
+
+
+      p.numero +
+
+
+
+      ' — ' +
+
+
+
+      p.nombre;
+
+
+
+
+
+
+
+    item.appendChild(
+
+
+
+      nombre
+
+
+
+    );
+
+
+
+
+
+
+
+
+
+
+
+    const datos =
+
+
+
+      document.createElement('div');
+
+
+
+
+
+
+
+    datos.className =
+
+
+
+      'pendienteDato';
+
+
+
+
+
+
+
+    let texto =
+
+
+
+      'DNI: ' +
+
+
+
+      (p.dni || '—');
+
+
+
+
+
+
+
+    texto +=
+
+
+
+      '\nTeléfono: ' +
+
+
+
+      (p.telefono || '—');
+
+
+
+
+
+
+
+    texto +=
+
+
+
+      '\nAlimentación: ' +
+
+
+
+      (p.alimentacion || '—');
+
+
+
+
+
+
+
+    texto +=
+
+
+
+      '\nSalida: ' +
+
+
+
+      (p.salida || '—');
+
+
+
+
+
+
+
+    if (p.paradaAnterior) {
+
+
+
+
+
+
+
+      texto +=
+
+
+
+        '\nParada anterior: ' +
+
+
+
+        p.paradaAnterior +
+
+
+
+        ' — ' +
+
+
+
+        p.horaParadaAnterior;
+
+
+
+    }
+
+
+
+
+
+
+
+    texto +=
+
+
+
+      '\nEstado: ' +
+
+
+
+      (p.estado || '—');
+
+
+
+
+
+
+
+    datos.style.whiteSpace =
+
+
+
+      'pre-line';
+
+
+
+
+
+
+
+    datos.textContent =
+
+
+
+      texto;
+
+
+
+
+
+
+
+    item.appendChild(
+
+
+
+      datos
+
+
+
+    );
+
+
+
+
+
+
+
+
+
+
+
+    const abrir =
+
+
+
+      document.createElement('div');
+
+
+
+
+
+
+
+    abrir.className =
+
+
+
+      'abrirFicha';
+
+
+
+
+
+
+
+    abrir.textContent =
+
+
+
+      'TOCAR PARA ABRIR FICHA';
+
+
+
+
+
+
+
+    item.appendChild(
+
+
+
+      abrir
+
+
+
+    );
+
+
+
+
+
+
+
+    lista.appendChild(
+
+
+
+      item
+
+
+
+    );
+
+
+
+  }
+
+
+
+
+
+
+
+  panel.style.display =
+
+
+
+    'block';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function abrirPendiente(numero) {
+
+
+
+
+
+
+
+  cerrarPendientes();
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('numero')
+
+
+
+    .value = numero;
+
+
+
+
+
+
+
+  buscarPeregrino();
+
+
+
+
+
+
+
+  window.scrollTo({
+
+
+
+    top: 0,
+
+
+
+    behavior: 'smooth'
+
+
+
+  });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function cerrarPendientes() {
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('panelPendientes')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('listaPendientes')
+
+
+
+    .innerHTML = '';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function actualizarBotonesPendientes() {
+
+
+
+
+
+
+
+  const parroquia =
+
+
+
+    document
+
+
+
+      .getElementById('punto')
+
+
+
+      .value === 'PARROQUIA';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('botonPendientes')
+
+
+
+    .style.display =
+
+
+
+      parroquia
+
+
+
+        ? 'none'
+
+
+
+        : 'block';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('pendientesParroquia')
+
+
+
+    .style.display =
+
+
+
+      parroquia
+
+
+
+        ? 'flex'
+
+
+
+        : 'none';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   REGRESO EN FICHA
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function mostrarRegreso(ficha) {
+
+
+
+
+
+
+
+  const box =
+
+
+
+    document.getElementById(
+
+
+
+      'regresoBox'
+
+
+
+    );
+
+
+
+
+
+
+
+  if (!ficha.puedeAsignarRegreso) {
+
+
+
+
+
+
+
+    box.style.display =
+
+
+
+      'none';
+
+
+
+
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  box.style.display =
+
+
+
+    'block';
+
+
+
+
+
+
+
+  const actual =
+
+
+
+    ficha.microRegreso ||
+
+
+
+    'SIN ASIGNAR';
+
+
+
+
+
+
+
+  const horario =
+
+
+
+    ficha.horarioRegreso
+
+
+
+
+
+
+
+      ? ' — ' +
+
+
+
+        ficha.horarioRegreso +
+
+
+
+        ' hs'
+
+
+
+
+
+
+
+      : '';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('regresoActual')
+
+
+
+    .innerHTML =
+
+
+
+      '<strong>' +
+
+
+
+      actual +
+
+
+
+      horario +
+
+
+
+      '</strong>';
+
+
+
+
+
+
+
+
+
+
+
+  [
+
+
+
+    'regMicro1',
+
+
+
+    'regMicro2',
+
+
+
+    'regMicro3'
+
+
+
+  ].forEach(
+
+
+
+    function(id) {
+
+
+
+
+
+
+
+      document
+
+
+
+        .getElementById(id)
+
+
+
+        .classList
+
+
+
+        .remove(
+
+
+
+          'microSeleccionado'
+
+
+
+        );
+
+
+
+    }
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  if (ficha.microRegreso) {
+
+
+
+
+
+
+
+    const n =
+
+
+
+      ficha.microRegreso
+
+
+
+        .replace(/[^123]/g, '');
+
+
+
+
+
+
+
+    if (n) {
+
+
+
+
+
+
+
+      document
+
+
+
+        .getElementById(
+
+
+
+          'regMicro' + n
+
+
+
+        )
+
+
+
+        .classList
+
+
+
+        .add(
+
+
+
+          'microSeleccionado'
+
+
+
+        );
+
+
+
+    }
+
+
+
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function asignarMicro(micro) {
+
+
+
+
+
+
+
+  if (
+
+
+
+    !peregrinoSeleccionado ||
+
+
+
+    guardando
+
+
+
+  ) {
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  guardando = true;
+
+
+
+
+
+
+
+  mostrarMensaje(
+
+
+
+    'Asignando micro de regreso...',
+
+
+
+    'gris'
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(r) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+
+
+
+
+        if (!r || !r.ok) {
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            r
+
+
+
+              ? r.mensaje
+
+
+
+              : 'No hubo respuesta.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          '✓ Regreso asignado: ' +
+
+
+
+          r.micro,
+
+
+
+          'verde'
+
+
+
+        );
+
+
+
+
+
+
+
+        setTimeout(
+
+
+
+          buscarPeregrino,
+
+
+
+          200
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(e) {
+
+
+
+
+
+
+
+        guardando = false;
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' +
+
+
+
+          e.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .asignarMicroRegreso(
+
+
+
+      peregrinoSeleccionado.numero,
+
+
+
+      micro
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   HORARIOS DE REGRESO
+
+
+
+   GUARDADO AUTOMÁTICO
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function guardarHorarioAutomatico(
+
+
+
+  micro,
+
+
+
+  inputId,
+
+
+
+  estadoId
+
+
+
+) {
+
+
+
+
+
+
+
+  const input =
+
+
+
+    document.getElementById(
+
+
+
+      inputId
+
+
+
+    );
+
+
+
+
+
+
+
+  const estado =
+
+
+
+    document.getElementById(
+
+
+
+      estadoId
+
+
+
+    );
+
+
+
+
+
+
+
+  const horario =
+
+
+
+    input.value;
+
+
+
+
+
+
+
+  if (!horario) {
+
+
+
+
+
+
+
+    estado.textContent = '';
+
+
+
+
+
+
+
+    return;
+
+
+
+  }
+
+
+
+
+
+
+
+  input.disabled = true;
+
+
+
+
+
+
+
+  estado.textContent =
+
+
+
+    'Guardando...';
+
+
+
+
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(r) {
+
+
+
+
+
+
+
+        input.disabled = false;
+
+
+
+
+
+
+
+        if (!r || !r.ok) {
+
+
+
+
+
+
+
+          estado.textContent =
+
+
+
+            'Error';
+
+
+
+
+
+
+
+          mostrarMensaje(
+
+
+
+            r
+
+
+
+              ? r.mensaje
+
+
+
+              : 'No hubo respuesta.',
+
+
+
+            'rojo'
+
+
+
+          );
+
+
+
+
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        input.value =
+
+
+
+          r.horario;
+
+
+
+
+
+
+
+        estado.textContent =
+
+
+
+          '✓ Guardado';
+
+
+
+
+
+
+
+        setTimeout(
+
+
+
+          function() {
+
+
+
+
+
+
+
+            estado.textContent = '';
+
+
+
+
+
+
+
+          },
+
+
+
+          2500
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .withFailureHandler(
+
+
+
+      function(e) {
+
+
+
+
+
+
+
+        input.disabled = false;
+
+
+
+
+
+
+
+        estado.textContent =
+
+
+
+          'Error';
+
+
+
+
+
+
+
+        mostrarMensaje(
+
+
+
+          'ERROR: ' +
+
+
+
+          e.message,
+
+
+
+          'rojo'
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .guardarHorarioMicroRegreso(
+
+
+
+      micro,
+
+
+
+      horario
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   CARGAR HORARIOS GUARDADOS
+
+
+
+   SIN MOSTRAR RESUMEN
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function cargarHorariosRegreso() {
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(r) {
+
+
+
+
+
+
+
+        if (!r || !r.ok) {
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        r.micros.forEach(
+
+
+
+          function(x, i) {
+
+
+
+
+
+
+
+            const input =
+
+
+
+              document.getElementById(
+
+
+
+                'horaMicro' + (i + 1)
+
+
+
+              );
+
+
+
+
+
+
+
+            if (input) {
+
+
+
+
+
+
+
+              input.value =
+
+
+
+                x.horario || '';
+
+
+
+            }
+
+
+
+          }
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .obtenerEstadoRegreso();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   MICROS DE IDA
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function actualizarEstadoMicrosInicio() {
+
+
+
+
+
+
+
+  google.script.run
+
+
+
+
+
+
+
+    .withSuccessHandler(
+
+
+
+      function(r) {
+
+
+
+
+
+
+
+        if (!r || !r.ok) {
+
+
+
+          return;
+
+
+
+        }
+
+
+
+
+
+
+
+        aplicarEstadoMicroInicio(
+
+
+
+          'microInicioLiniers',
+
+
+
+          'LINIERS',
+
+
+
+          r.liniers
+
+
+
+        );
+
+
+
+
+
+
+
+        aplicarEstadoMicroInicio(
+
+
+
+          'microInicioRodriguez',
+
+
+
+          'RODRÍGUEZ',
+
+
+
+          r.rodriguez
+
+
+
+        );
+
+
+
+
+
+
+
+      }
+
+
+
+    )
+
+
+
+
+
+
+
+    .obtenerEstadoMicrosInicio();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function aplicarEstadoMicroInicio(
+
+
+
+  id,
+
+
+
+  destino,
+
+
+
+  estado
+
+
+
+) {
+
+
+
+
+
+
+
+  const b = document.getElementById(id);
+  const cancelarId = id === 'microInicioLiniers' ? 'cancelarMicroLiniers' : 'cancelarMicroRodriguez';
+  const cancelarBtn = document.getElementById(cancelarId);
+
+  if (!b) return;
+
+
+
+
+
+
+
+
+
+
+
+  if (
+
+
+
+    estado &&
+
+
+
+    estado.registrado
+
+
+
+  ) {
+
+
+
+
+
+
+
+    b.disabled = true;
+
+
+
+
+
+
+
+    b.classList.add(
+
+
+
+      'microBloqueado'
+
+
+
+    );
+
+
+
+
+
+
+
+    b.textContent =
+
+
+
+      '✓ MICROS EN ' +
+
+
+
+      destino +
+
+
+
+      ' — ' +
+
+
+
+      estado.hora;
+
+    if (cancelarBtn) cancelarBtn.style.display = 'block';
+
+  } else {
+
+
+
+
+
+
+
+    b.disabled = false;
+
+
+
+
+
+
+
+    b.classList.remove(
+
+
+
+      'microBloqueado'
+
+
+
+    );
+
+
+
+
+
+
+
+    b.textContent =
+
+
+
+      'MICROS LLEGARON A ' +
+
+
+
+      destino;
+
+    if (cancelarBtn) cancelarBtn.style.display = 'none';
+
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function cancelarMicros(destino) {
+  if (guardando) return;
+  pedirPinMicros(function(pin) {
+    pedirConfirmacion(
+      '¿SEGURO QUE QUERÉS CANCELAR LA LLEGADA DE LOS MICROS A ' + destino.toUpperCase() + '?\n\nUsar únicamente si la llegada fue registrada por error.',
+      function() { ejecutarCancelacionMicros(destino, pin); }
+    );
+  });
+}
+
+function ejecutarCancelacionMicros(destino, pin) {
+  if (guardando) return;
+
+  guardando = true;
+  bloquearAcciones(true);
+  mostrarMensaje('Cancelando llegada de los micros...', 'gris');
+
+  google.script.run
+    .withSuccessHandler(function(resultado) {
+      guardando = false;
+      bloquearAcciones(false);
+
+      if (!resultado || !resultado.ok) {
+        mostrarMensaje(resultado ? resultado.mensaje : 'No hubo respuesta.', 'rojo');
+        actualizarEstadoMicrosInicio();
+        return;
+      }
+
+      mostrarMensaje('✓ LLEGADA A ' + destino.toUpperCase() + ' CANCELADA', 'verde');
+      actualizarEstadoMicrosInicio();
+
+      if (peregrinoSeleccionado) {
+        setTimeout(function() { buscarPeregrino(); }, 200);
+      }
+    })
+    .withFailureHandler(function(error) {
+      guardando = false;
+      bloquearAcciones(false);
+      mostrarMensaje('ERROR: ' + error.message, 'rojo');
+      actualizarEstadoMicrosInicio();
+    })
+    .cancelarLlegadaMicros(destino, pin);
+}
+
+
+/* =========================================
+
+
+
+   LLEGADA DE MICROS
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function llegaronMicros(destino) {
+  if (guardando) return;
+  pedirPinMicros(function(pin) {
+    pedirConfirmacion(
+      '¿CONFIRMÁS QUE LOS MICROS LLEGARON A ' + destino.toUpperCase() +
+        '?\n\nEsta hora quedará registrada para los peregrinos de ese grupo.',
+      function() { ejecutarLlegadaMicros(destino, pin); }
+    );
+  });
+}
+
+function ejecutarLlegadaMicros(destino, pin) {
+  if (guardando) return;
+
+  guardando = true;
+  bloquearAcciones(true);
+  mostrarMensaje('Registrando llegada de los micros...', 'gris');
+
+  google.script.run
+    .withSuccessHandler(function(resultado) {
+      guardando = false;
+      bloquearAcciones(false);
+
+      if (!resultado || !resultado.ok) {
+        mostrarMensaje(resultado ? resultado.mensaje : 'No hubo respuesta.', 'rojo');
+        actualizarEstadoMicrosInicio();
+        return;
+      }
+
+      mostrarMensaje(
+        '✓ MICROS EN ' + destino.toUpperCase() + ' — INICIO ' + resultado.hora,
+        'verde'
+      );
+      actualizarEstadoMicrosInicio();
+
+      if (peregrinoSeleccionado) {
+        setTimeout(function() { buscarPeregrino(); }, 200);
+      }
+    })
+    .withFailureHandler(function(error) {
+      guardando = false;
+      bloquearAcciones(false);
+      mostrarMensaje('ERROR: ' + error.message, 'rojo');
+      actualizarEstadoMicrosInicio();
+    })
+    .registrarLlegadaMicros(destino, pin);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   ABRAZO
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function mostrarAbrazo(texto) {
+
+
+
+
+
+
+
+  const el =
+
+
+
+    document.getElementById(
+
+
+
+      'abrazoAviso'
+
+
+
+    );
+
+
+
+
+
+
+
+  el.textContent =
+
+
+
+    texto;
+
+
+
+
+
+
+
+  el.style.display =
+
+
+
+    'block';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function ocultarAbrazo() {
+
+
+
+
+
+
+
+  const el =
+
+
+
+    document.getElementById(
+
+
+
+      'abrazoAviso'
+
+
+
+    );
+
+
+
+
+
+
+
+  el.textContent = '';
+
+
+
+
+
+
+
+  el.style.display =
+
+
+
+    'none';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   ACCIONES / AVISOS
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function ocultarAcciones() {
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('accionPresente')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('accionSeQueda')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('accionCambioDecision')
+
+
+
+    .style.display = 'none';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function bloquearAcciones(bloquear) {
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('botonPresente')
+
+
+
+    .disabled = bloquear;
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('botonQueda')
+
+
+
+    .disabled = bloquear;
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('botonContinua')
+
+
+
+    .disabled = bloquear;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function mostrarAviso(
+
+
+
+  titulo,
+
+
+
+  texto,
+
+
+
+  clase
+
+
+
+) {
+
+
+
+
+
+
+
+  const aviso =
+
+
+
+    document.getElementById(
+
+
+
+      'aviso'
+
+
+
+    );
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('tituloAviso')
+
+
+
+    .textContent =
+
+
+
+      titulo;
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('textoAviso')
+
+
+
+    .textContent =
+
+
+
+      texto;
+
+
+
+
+
+
+
+  aviso.className =
+
+
+
+    clase;
+
+
+
+
+
+
+
+  aviso.style.display =
+
+
+
+    'block';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function ocultarAviso() {
+
+
+
+
+
+
+
+  const aviso =
+
+
+
+    document.getElementById(
+
+
+
+      'aviso'
+
+
+
+    );
+
+
+
+
+
+
+
+  aviso.style.display =
+
+
+
+    'none';
+
+
+
+
+
+
+
+  aviso.className =
+
+
+
+    '';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   MENSAJES
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+function mostrarMensaje(
+
+
+
+  texto,
+
+
+
+  clase
+
+
+
+) {
+
+
+
+
+
+
+
+  const mensaje =
+
+
+
+    document.getElementById(
+
+
+
+      'mensaje'
+
+
+
+    );
+
+
+
+
+
+
+
+  mensaje.textContent =
+
+
+
+    texto;
+
+
+
+
+
+
+
+  mensaje.className =
+
+
+
+    clase;
+
+
+
+
+
+
+
+  mensaje.style.display =
+
+
+
+    'block';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function ocultarMensaje() {
+
+
+
+
+
+
+
+  const mensaje =
+
+
+
+    document.getElementById(
+
+
+
+      'mensaje'
+
+
+
+    );
+
+
+
+
+
+
+
+  mensaje.textContent =
+
+
+
+    '';
+
+
+
+
+
+
+
+  mensaje.style.display =
+
+
+
+    'none';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function bloquearBuscar(bloquear) {
+
+
+
+
+
+
+
+  const boton =
+
+
+
+    document.getElementById(
+
+
+
+      'botonBuscar'
+
+
+
+    );
+
+
+
+
+
+
+
+  boton.disabled =
+
+
+
+    bloquear;
+
+
+
+
+
+
+
+  boton.textContent =
+
+
+
+    bloquear
+
+
+
+      ? 'BUSCANDO...'
+
+
+
+      : 'BUSCAR PEREGRINO';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function limpiarBusqueda() {
+
+
+
+
+
+
+
+  peregrinoSeleccionado =
+
+
+
+    null;
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('numero')
+
+
+
+    .value = '';
+
+
+
+
+
+
+
+  document
+
+
+
+    .getElementById('ficha')
+
+
+
+    .style.display = 'none';
+
+
+
+
+
+
+
+  ocultarAcciones();
+
+
+
+  ocultarAviso();
+
+
+
+  ocultarAbrazo();
+
+
+
+  ocultarMensaje();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function normalizarTexto(texto) {
+
+
+
+
+
+
+
+  return String(texto || '')
+
+
+
+    .normalize('NFD')
+
+
+
+    .replace(
+
+
+
+      /[\u0300-\u036f]/g,
+
+
+
+      ''
+
+
+
+    )
+
+
+
+    .trim()
+
+
+
+    .toUpperCase();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   ENTER
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+document
+
+
+
+  .getElementById('numero')
+
+
+
+  .addEventListener(
+
+
+
+    'keydown',
+
+
+
+    function(event) {
+
+
+
+
+
+
+
+      if (event.key === 'Enter') {
+
+
+
+
+
+
+
+        event.preventDefault();
+
+
+
+
+
+
+
+        buscarPeregrino();
+
+
+
+      }
+
+
+
+    }
+
+
+
+  );
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+
+
+
+   INICIO
+
+
+
+   ========================================= */
+
+
+
+
+
+
+
+actualizarBotonesPendientes();
+
+
+
+
+
+
+
+actualizarEstadoMicrosInicio();
+
+
+
+
+
+
+
+cargarHorariosRegreso();
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+ * Sincroniza entre teléfonos la llegada
+
+
+
+ * de los micros de ida.
+
+
+
+ */
+
+
+
+
+
+
+
+setInterval(
+
+
+
+  actualizarEstadoMicrosInicio,
+
+
+
+  15000
+
+
+
+);
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+ * Actualiza los tres horarios guardados
+
+
+
+ * sin mostrar ningún resumen inferior.
+
+
+
+ */
+
+
+
+
+
+
+
+setInterval(
+
+
+
+  cargarHorariosRegreso,
+
+
+
+  15000
+
+
+
+);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<div id="v24Offline" style="display:none;position:fixed;inset:0;z-index:999999;background:#eef6ff;overflow:auto;font-family:Arial,sans-serif;color:#17324d">
+  <div style="max-width:680px;margin:auto;padding:14px">
+    <div style="background:white;border-radius:18px;padding:14px;text-align:center;margin-bottom:10px">
+      <img src="icon-192.png" style="width:82px;height:82px;border-radius:20px;object-fit:cover">
+      <div style="font-size:22px;font-weight:800;margin-top:6px">Luján 2026 · MODO OFFLINE</div>
+      <div id="v24OfflineCount" style="margin-top:6px;font-weight:700"></div>
+    </div>
+    <div style="background:white;border-radius:18px;padding:14px;margin-bottom:10px">
+      <select id="v24Point" style="width:100%;padding:12px;font-size:17px;border-radius:10px;margin-bottom:8px">
+        <option>Parroquia</option><option>Morón</option><option>Merlo</option><option>La Reja</option><option>Rodríguez</option><option>Luján</option>
+      </select>
+      <button onclick="v24MostrarPendientesOffline()" style="width:100%;padding:12px;border-radius:10px;border:2px solid #0b5cab;background:white;color:#0b5cab;font-weight:800">VER PEREGRINOS PENDIENTES</button>
+      <input id="v24Q" placeholder="Nº / DNI / nombre" style="width:100%;padding:12px;font-size:17px;border-radius:10px;border:1px solid #aaa;margin-top:10px">
+      <button onclick="v24BuscarOffline()" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">BUSCAR</button>
+      <div id="v24Result" style="margin-top:10px"></div>
+      <div id="v24Actions" style="display:none">
+        <button onclick="v24GuardarOffline('PRESENTE')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">PRESENTE</button>
+        <button onclick="v24GuardarOffline('SE QUEDA')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#7a4d00;color:white;font-weight:800;margin-top:7px">SE QUEDA</button>
+        <button onclick="v24GuardarOffline('CONTINUA')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#0b5cab;color:white;font-weight:800;margin-top:7px">CONTINÚA</button>
+      </div>
+    </div>
+    <div id="v24PendingBox" style="display:none;background:white;border-radius:18px;padding:14px"></div>
+    <div style="font-size:12px;padding:8px">Los movimientos quedan guardados con la hora real y se sincronizan al recuperar señal. Las llegadas/cancelaciones masivas de micros y la gestión de regreso son solo ONLINE.</div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+const API="https://script.google.com/macros/s/AKfycbySujVV3q3W9nGlD9VGpTpycDxU_yYc1SiN22PCjZHLb8FAfksjcsRV39QXqYklo4JLKg/exec", KR='lujan24_roster', KQ='lujan24_queue', KU='lujan24_updated';
+let sel=null;
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+function queue(){return load(KQ,[])}
+function paintOffline(){
+ const off=document.getElementById('v24Offline'); if(!off)return;
+ off.style.display=navigator.onLine?'none':'block';
+ document.getElementById('v24OfflineCount').textContent='Registros pendientes de sincronizar: '+queue().length;
+}
+async function roster(){
+ if(!navigator.onLine)return;
+ try{const d=await window.v24Jsonp({api:'roster'});if(d.ok){save(KR,d.peregrinos);localStorage.setItem(KU,new Date().toLocaleString('es-AR'));}}catch(e){}
+}
+async function cachePendientes(){
+ if(!navigator.onLine)return;
+ for(const p of ['Parroquia','Morón','Merlo','La Reja','Rodríguez','Luján']){
+   try{const d=await window.v24Jsonp({api:'pending',punto:p});if(d&&d.ok)save('lujan24_pending_'+norm(p),d)}catch(e){}
+ }
+ for(const s of ['Liniers','Rodríguez']){
+   try{const d=await window.v24Jsonp({api:'pending',punto:'Parroquia',salida:s});if(d&&d.ok)save('lujan24_pending_'+norm('Parroquia '+s),d)}catch(e){}
  }
 }
-$('#refresh').onclick=()=>refreshRoster().catch(()=>{});
-window.addEventListener('online',()=>{paint();sync();refreshRoster().catch(()=>{})});
-window.addEventListener('offline',paint);
+async function sync(){
+ if(!navigator.onLine)return; let a=queue();
+ for(const item of [...a]){
+   try{const d=await window.v24Jsonp({api:'sync',payload:JSON.stringify(item)});if(d&&d.ok){a=a.filter(x=>x.id!==item.id);save(KQ,a)}else break}catch(e){break}
+ }
+ paintOffline();
+}
+window.v24BuscarOffline=function(){
+ const q=norm(document.getElementById('v24Q').value),r=load(KR,[]);
+ sel=r.find(p=>norm(p.numero)===q||norm(p.dni)===q)||r.find(p=>norm(p.nombre).includes(q));
+ const el=document.getElementById('v24Result'),ac=document.getElementById('v24Actions');
+ if(!sel){el.innerHTML='<div style="padding:10px;background:#fff4d8;border-radius:10px">No encontrado en la última nómina sincronizada.</div>';ac.style.display='none';return}
+ el.innerHTML=`<div style="padding:10px;background:#f5f9fd;border-radius:10px"><b style="font-size:20px">${sel.nombre}</b><br>Nº ${sel.numero} · DNI ${sel.dni||'—'} · Edad ${sel.edad||'—'}<br>Tel: ${sel.telefono||'—'} · Salida: ${sel.salida||'—'}<br>Alimentación: ${sel.alimentacion||'—'}<br>Cobertura: ${sel.cobertura||'—'}<br>Grupo sanguíneo: ${sel.grupo||'—'}<br>Acompañante: ${sel.acompanante||'—'}</div>`;
+ ac.style.display='block';
+};
+window.v24GuardarOffline=function(accion){
+ if(!sel)return; const a=queue();
+ a.push({id:crypto.randomUUID(),numero:sel.numero,punto:document.getElementById('v24Point').value,accion,fechaCliente:new Date().toISOString()});
+ save(KQ,a); paintOffline();
+ document.getElementById('v24Result').insertAdjacentHTML('beforeend',`<div style="margin-top:8px;padding:10px;background:#eaf8ef;border-radius:10px"><b>${accion}</b> guardado OFFLINE.</div>`);
+};
+window.v24MostrarPendientesOffline=function(){
+ const p=document.getElementById('v24Point').value,d=load('lujan24_pending_'+norm(p),null),box=document.getElementById('v24PendingBox');
+ box.style.display='block';
+ if(!d){box.innerHTML='<b>PENDIENTES — '+p.toUpperCase()+'</b><p>No hay una lista sincronizada para esta parada. Abrí la app con Internet antes de salir.</p>';return}
+ let h='<b>PENDIENTES — '+p.toUpperCase()+'</b><p style="font-size:12px">Último estado sincronizado. Puede haber movimientos de otros teléfonos todavía sin sincronizar.</p>';
+ h+=`<p><b>Esperados:</b> ${d.esperados??'—'} · <b>Presentes:</b> ${d.presentes??'—'} · <b>Pendientes:</b> ${d.pendientesCantidad??(d.pendientes||[]).length}</p>`;
+ const arr=d.pendientes||[]; if(!arr.length)h+='<p>No hay peregrinos pendientes.</p>';
+ arr.forEach(x=>h+=`<div style="padding:9px 0;border-top:1px solid #ddd"><b>${x.numero||''} · ${x.nombre||''}</b><br>DNI: ${x.dni||'—'} · Tel: ${x.telefono||'—'}<br>Salida: ${x.salida||'—'}</div>`);
+ box.innerHTML=h;
+};
+window.addEventListener('offline',paintOffline);
+window.addEventListener('online',async()=>{paintOffline();await sync();await roster();await cachePendientes()});
+document.addEventListener('DOMContentLoaded',async()=>{paintOffline();if(navigator.onLine){await sync();await roster();cachePendientes()}});
+setInterval(()=>{if(navigator.onLine){sync();roster();cachePendientes()}},120000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
-paint(); if(navigator.onLine){sync();refreshRoster().catch(()=>{})}
-</script></body></html>
+})();
+</script>
+
+</body>
+
+
+
+
+
+
+
+</html>

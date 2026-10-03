@@ -1,11 +1,10 @@
 {
   "name": "Peregrinos a Luján 2026",
   "short_name": "Luján 2026",
-  "description": "Control de peregrinos — Parroquia Sagrada Eucaristía",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#eef6ff",
   "theme_color": "#0b5cab",
   "icons": [
     {

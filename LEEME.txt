@@ -1,13 +1,5 @@
-V24 OFFLINE — PRUEBA CONTROLADA
-
-1) En Apps Script > Proyecto sin título, reemplazar SOLO Código.gs por Codigo_V24_BACKEND.txt.
-2) Conservar el Index.html V23 actual.
-3) Guardar y actualizar la MISMA implementación.
-4) Publicar esta carpeta PWA en un hosting HTTPS compatible con Service Worker.
-5) Abrir la PWA online y tocar ACTUALIZAR NÓMINA.
-6) Poner modo avión, buscar y registrar.
-7) Recuperar Internet y comprobar REGISTROS.
-
-La V23 visual sigue funcionando en el enlace habitual.
-En esta prueba offline se sincronizan PRESENTE, SE QUEDA y CONTINÚA.
-Las acciones masivas de micros siguen ONLINE y protegidas por PIN 4320 desde la V23.
+V24 FINAL
+- Interfaz completa V23 cuando hay Internet: ficha, salud, pendientes, cancelar presente, micros de ida con PIN, micros de regreso y horarios.
+- Offline: nómina, búsqueda, PRESENTE, SE QUEDA, CONTINÚA y último estado sincronizado de pendientes.
+- Acciones masivas de micros y regreso: solo online.
+- Sincronización automática al recuperar Internet.
