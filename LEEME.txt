@@ -1,5 +1,5 @@
-V24 PWA — CORRECCIÓN DE ESCALA MÓVIL
+VERSIÓN NATIVA PARA GITHUB
 No tocar Apps Script.
-Reemplazar en GitHub los 6 archivos por estos.
-Único cambio respecto de la PWA limpia: escala del iframe en celulares + nueva versión de caché.
-La V23 oficial sigue siendo la aplicación online.
+Es el Index V23 original, sin iframe y sin cambios de escala.
+Se agregó únicamente el puente de llamadas al backend y soporte instalable.
+Esta entrega prioriza recuperar YA el tamaño/interfaz correcta online.
