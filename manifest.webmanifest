@@ -1,20 +1,20 @@
 {
-  "name": "Peregrinos a Luján 2026",
+  "name": "Peregrinación a Luján 2026",
   "short_name": "Luján 2026",
-  "start_url": "./",
+  "start_url": "./?v=24-clean",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#eef6ff",
-  "theme_color": "#0b5cab",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

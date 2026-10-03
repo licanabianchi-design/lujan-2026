@@ -1,1 +1,6 @@
-V24 FINAL CORREGIDA. Reemplazar los 6 archivos del repositorio por estos. La interfaz online conserva V23 y agrega solo estado de conexión; el modo offline aparece únicamente al perder Internet.
+V24 PWA LIMPIA
+- NO modificar Apps Script.
+- Con Internet, el icono muestra directamente la V23 oficial dentro de la PWA: misma interfaz, mismos botones, misma lógica.
+- Sin Internet, aparece solamente el módulo offline.
+- Al volver Internet, sincroniza la cola y vuelve automáticamente a la V23 oficial.
+- Reemplazar en GitHub los 6 archivos por los de este ZIP.
